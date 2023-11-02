@@ -22,16 +22,14 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Center(
         child: AnimatedOpacity(
           opacity: opacity,
           duration: const Duration(seconds: 2),
-          // onEnd: () => Navigator.of(context).pushReplacementNamed(
-          //   kLogInView,
-          // ),
+          onEnd: () => Navigator.of(context).pushReplacementNamed(
+            kLogInView,
+          ),
           child: Image.asset(
             AssetsImages.logo,
             height: 100.sh,
