@@ -1,5 +1,27 @@
 {
   "hello": "Hello",
   "unknownError": "Unknown error",
-  "tryAgainLater": "Please try again later!"
+  "tryAgainLater": "Please try again later!",
+  "notConnectedToInternet": "You are not connected to the internet.",
+  "signIn": "Sign in",
+  "pleaseLogInToCompletePurchase": "من فضلك قم بالدخول لإتمام الشراء",
+  "enter": "Enter",
+  "doNotHaveAccount": "You don't have an account ?",
+  "register": "Register",
+  "haveAccount": "You already have an account ?",
+  "newAccount": "New Account",
+  "welcomeCompleteDataToSignUp": "Welcome, Complete the Data To SignUp",
+  "thisFieldNecessary": "This Field is Necessary",
+  "ok": "Ok",
+  "cancel": "Cancel",
+  "plzEnterValidPass": "Please enter a valid password.",
+  "passwordsNotMatch": "Passwords don't match.",
+  "plzEnterValidEmail": "Please enter a valid email.",
+  "plzEnterValidName": "Please enter a valid name.",
+  "email": "Email",
+  "userName": "User name",
+  "password": "Password",
+  "confirmPassword": "Confirm password",
+  "firstName": "First name",
+  "lastName": "Last name"
 }

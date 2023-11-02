@@ -4,9 +4,9 @@ import 'package:dio/dio.dart';
 import '../../../../core/data/api_services.dart';
 import '../../../../core/data/failures/failure.dart';
 import '../../../../core/data/failures/server_failure.dart';
-import '../models/auth/request_register.dart';
-import '../models/auth/response_login.dart';
 import '../models/request_login.dart';
+import '../models/request_register.dart';
+import '../models/response_login.dart';
 import '../models/response_register/response_register.dart';
 import 'auth_repo.dart';
 

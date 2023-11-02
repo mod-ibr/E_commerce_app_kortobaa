@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dart:convert';
 
-import '../../../../features/auth/data/models/auth/response_login.dart';
+import '../../../../features/auth/data/models/response_login.dart';
 import '../../../constants/constants.dart';
 import '../../../localization/l10n.dart';
 

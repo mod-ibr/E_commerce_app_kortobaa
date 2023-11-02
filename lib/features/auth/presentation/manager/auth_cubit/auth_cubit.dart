@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/data/failures/failure.dart';
 import '../../../../../core/presentation/manager/preference_cubit/preference_cubit.dart';
-import '../../../data/models/auth/request_register.dart';
-import '../../../data/models/auth/response_login.dart';
+
 import '../../../data/models/request_login.dart';
+import '../../../data/models/request_register.dart';
+import '../../../data/models/response_login.dart';
 import '../../../data/models/response_register/response_register.dart';
 import '../../../data/repos/auth_repo.dart';
 
