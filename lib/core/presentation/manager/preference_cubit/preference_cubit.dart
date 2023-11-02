@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dart:convert';
 
+import '../../../../features/auth/data/models/auth/response_login.dart';
 import '../../../constants/constants.dart';
 import '../../../localization/l10n.dart';
 
@@ -13,6 +14,27 @@ class PreferenceCubit extends Cubit<PreferenceState> {
   final SharedPreferences sharedPreferences;
   PreferenceCubit({required this.sharedPreferences})
       : super(PreferenceInitial());
+
+  //* For API Services and Auth
+  ResponseLogin? _userData;
+  ResponseLogin? get userData => _userData;
+
+  Future<void> saveUserData(ResponseLogin responseUserData) async {
+    _userData = responseUserData;
+    await saveDataSharedPreference(key: kUserData, value: _userData?.toJson());
+  }
+
+  Future<void> getUserData() async {
+    final data = await getDataFromSharedPreference(key: kUserData);
+    if (data != null) {
+      _userData = ResponseLogin.fromJson(json.decode(data));
+    }
+  }
+
+  Future<void> removeUserData() async {
+    await removeData(key: kUserData);
+    _userData = null;
+  }
 
   //* For locale
   late String _langCode;
