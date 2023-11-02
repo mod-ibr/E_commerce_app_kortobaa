@@ -48,21 +48,23 @@ class MyApp extends StatelessWidget {
     return BlocBuilder<PreferenceCubit, PreferenceState>(
       builder: (_, state) => ConnectivityAppWrapper(
         app: ScreenUtilInit(
-          designSize: const Size(360, 690),
+          designSize: const Size(360, 795),
           minTextAdapt: true,
           splitScreenMode: true,
-          child: MaterialApp(
-            navigatorKey: navigatorKey,
-            debugShowCheckedModeBanner: false,
-            title: preferenceCubit.langCode == "en"
-                ? 'E-commerce App'
-                : 'متجر إلكتروني',
-            theme: kLightThemeData,
-            locale: Locale(preferenceCubit.langCode),
-            onGenerateRoute: AppRouter.generateRoute,
-            supportedLocales: L10n.supportedLocales,
-            localizationsDelegates: L10n.localizationsDelegates,
-          ),
+          builder: (_, child) {
+            return MaterialApp(
+              navigatorKey: navigatorKey,
+              debugShowCheckedModeBanner: false,
+              title: preferenceCubit.langCode == "en"
+                  ? 'E-commerce App'
+                  : 'متجر إلكتروني',
+              theme: kLightThemeData,
+              locale: Locale(preferenceCubit.langCode),
+              onGenerateRoute: AppRouter.generateRoute,
+              supportedLocales: L10n.supportedLocales,
+              localizationsDelegates: L10n.localizationsDelegates,
+            );
+          },
         ),
       ),
     );

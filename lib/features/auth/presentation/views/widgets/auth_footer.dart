@@ -19,14 +19,14 @@ class FooterAuth extends StatelessWidget {
         Text(
           title,
           style: theme.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w400, color: theme.colorScheme.onTertiary),
+              fontWeight: FontWeight.w700, color: theme.colorScheme.onTertiary),
         ),
         GestureDetector(
           onTap: () => onTap(),
           child: Text(
             bttnTitle,
             style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w400, color: theme.colorScheme.primary),
+                fontWeight: FontWeight.w700, color: theme.colorScheme.primary),
           ),
         ),
       ],

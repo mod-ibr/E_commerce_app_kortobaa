@@ -6,9 +6,9 @@
   "signIn": "Sign in",
   "pleaseLogInToCompletePurchase": "من فضلك قم بالدخول لإتمام الشراء",
   "enter": "Enter",
-  "doNotHaveAccount": "You don't have an account ?",
+  "doNotHaveAccount": "You don't have an account ? ",
   "register": "Register",
-  "haveAccount": "You already have an account ?",
+  "haveAccount": "You already have an account ? ",
   "newAccount": "New Account",
   "welcomeCompleteDataToSignUp": "Welcome, Complete the Data To SignUp",
   "thisFieldNecessary": "This Field is Necessary",
@@ -23,5 +23,6 @@
   "password": "Password",
   "confirmPassword": "Confirm password",
   "firstName": "First name",
-  "lastName": "Last name"
+  "lastName": "Last name",
+  "warning": "Warning"
 }

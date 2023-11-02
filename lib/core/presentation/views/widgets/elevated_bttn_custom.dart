@@ -8,8 +8,6 @@ import '../../../utils/service_locater/service_locater.dart' as di;
 class ElevatedBttnCustom extends StatelessWidget {
   final String title;
   final Color? backgroundColor;
-  final bool isFilled;
-  final Color? borderColor;
   final double elevation;
   final Function onTap;
   final double? height;
@@ -20,8 +18,6 @@ class ElevatedBttnCustom extends StatelessWidget {
     super.key,
     required this.title,
     this.backgroundColor,
-    this.isFilled = true,
-    this.borderColor,
     this.elevation = 2,
     required this.onTap,
     this.height,
@@ -44,35 +40,23 @@ class ElevatedBttnCustom extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             elevation: elevation,
-            backgroundColor: isFilled
-                ? backgroundColor ?? theme.colorScheme.primary
-                : theme.colorScheme.tertiary,
-            foregroundColor:
-                isFilled ? theme.colorScheme.tertiary : backgroundColor,
-            side: !isFilled
-                ? BorderSide(color: borderColor ?? theme.colorScheme.onTertiary)
-                : BorderSide.none,
+            backgroundColor: theme.colorScheme.secondary,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(200),
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: isLoading
                 ? CircularProgressIndicator(
-                    color: isFilled
-                        ? theme.colorScheme.tertiary
-                        : theme.colorScheme.onTertiary,
+                    color: theme.colorScheme.tertiary,
                     strokeWidth: 2,
                   )
                 : Text(
                     title,
                     style: theme.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: isFilled
-                          ? borderColor ?? theme.colorScheme.tertiary
-                          : borderColor ?? theme.colorScheme.onTertiary,
-                    ),
+                        fontWeight: FontWeight.w600,
+                        color: theme.colorScheme.tertiary),
                   ),
           ),
         ),

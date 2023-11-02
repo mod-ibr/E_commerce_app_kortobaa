@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/constants/assets/assets_images.dart';
 import '../../../../../core/localization/l10n.dart';
-import 'auth_app_image.dart';
 import 'auth_log_in_view_form.dart';
 
 class LogInViewBodyAuth extends StatelessWidget {
@@ -10,27 +11,39 @@ class LogInViewBodyAuth extends StatelessWidget {
   Widget build(BuildContext context) {
     final locale = getL10n(context);
     final theme = Theme.of(context);
-    final size = MediaQuery.of(context).size;
 
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.07),
+      padding: EdgeInsets.symmetric(horizontal: 27.w),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: size.height * 0.08),
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                const AppImageAuth(),
-                Text(
-                  locale.signIn,
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w400,
-                      color: theme.colorScheme.primary),
-                )
-              ],
+            Container(
+              margin: EdgeInsetsDirectional.only(top: 54.h, bottom: 32.h),
+              child: Image.asset(
+                AssetsImages.login,
+                width: 131.w,
+                height: 120.h,
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.only(bottom: 13.h),
+              child: Text(
+                locale.signIn,
+                style: theme.textTheme.headlineSmall?.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: theme.colorScheme.primary),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.only(bottom: 79.h),
+              child: Text(
+                locale.pleaseLogInToCompletePurchase,
+                style: theme.textTheme.bodyLarge?.copyWith(
+                    fontWeight: FontWeight.w400,
+                    color: theme.colorScheme.onPrimary),
+              ),
             ),
             const LogInViewFormAuth(),
           ],

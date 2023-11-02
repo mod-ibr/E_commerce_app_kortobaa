@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/constants/assets/assets_images.dart';
 import '../../../../../core/localization/l10n.dart';
-import 'auth_app_image.dart';
+
 import 'auth_footer.dart';
 import 'auth_register_view_form.dart';
 
@@ -19,7 +21,11 @@ class RegisterViewBodyAuth extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const AppImageAuth(),
+            Image.asset(
+              AssetsImages.signup,
+              width: 131.w,
+              height: 96.h,
+            ),
             const RegisterViewFormAuth(),
             Padding(
               padding: EdgeInsets.symmetric(vertical: size.width * 0.05),

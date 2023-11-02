@@ -147,7 +147,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           hintText: locale.userName,
           textEditingController: userNameController,
           obscureText: false,
-          leadingIcon: AssetsIcons.profile,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return locale.plzEnterValidName;
@@ -159,7 +158,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           hintText: locale.email,
           textEditingController: emailController,
           obscureText: false,
-          leadingIcon: AssetsIcons.email,
           validator: (value) {
             final regex = RegExp(emailRegex);
             if (value == null || value.isEmpty || !regex.hasMatch(value)) {
@@ -173,7 +171,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           textEditingController: firstNameController,
           obscureText: false,
           keyboardType: TextInputType.phone,
-          leadingIcon: AssetsIcons.phone,
           validator: (value) {
             if (value == null || value.isEmpty || value.length < 11) {
               return locale.plzEnterValidName;
@@ -186,7 +183,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           textEditingController: lastNameController,
           obscureText: false,
           keyboardType: TextInputType.phone,
-          leadingIcon: AssetsIcons.phone,
           validator: (value) {
             if (value == null || value.isEmpty || value.length < 11) {
               return locale.plzEnterValidName;
@@ -198,7 +194,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           hintText: locale.password,
           textEditingController: passwordController,
           obscureText: true,
-          leadingIcon: AssetsIcons.password,
           validator: (value) {
             if (value == null || value.isEmpty || value.length < 8) {
               return locale.plzEnterValidPass;
@@ -210,7 +205,6 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           hintText: locale.confirmPassword,
           textEditingController: confirmPasswordController,
           obscureText: true,
-          leadingIcon: AssetsIcons.password,
           validator: (value) {
             if (value == null || value.isEmpty || value.length < 8) {
               return locale.plzEnterValidPass;

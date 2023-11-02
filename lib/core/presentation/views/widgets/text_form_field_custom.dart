@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 class TextFormFieldCustom extends StatelessWidget {
   final String? hintText;
-  final String? leadingIcon;
   final TextEditingController textEditingController;
   final FocusNode? focusNode;
   final FocusNode? nextFocusNode;
@@ -15,7 +14,6 @@ class TextFormFieldCustom extends StatelessWidget {
   const TextFormFieldCustom({
     super.key,
     this.hintText,
-    this.leadingIcon,
     required this.textEditingController,
     this.focusNode,
     this.nextFocusNode,
@@ -49,26 +47,21 @@ class TextFormFieldCustom extends StatelessWidget {
         }
         return null;
       },
+      style: theme.textTheme.labelLarge
+          ?.copyWith(color: theme.colorScheme.secondary),
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: theme.textTheme.labelLarge
-            ?.copyWith(color: theme.colorScheme.onSurface),
-        prefixIcon: leadingIcon != null
-            ? Align(
-                widthFactor: 1.0,
-                heightFactor: 1.0,
-                child: SvgPicture.asset(leadingIcon!),
-              )
-            : null,
+            ?.copyWith(color: theme.colorScheme.onPrimary.withOpacity(0.5)),
         filled: true,
         fillColor: theme.colorScheme.surface,
         border: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(30.0),
+          borderSide: BorderSide(color: theme.colorScheme.onPrimary),
+          borderRadius: BorderRadius.circular(8),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: theme.colorScheme.primary),
-          borderRadius: BorderRadius.circular(30.0),
+          borderSide: BorderSide(color: theme.colorScheme.secondary),
+          borderRadius: BorderRadius.circular(8),
         ),
         contentPadding:
             const EdgeInsetsDirectional.symmetric(vertical: 10, horizontal: 20),
