@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import '../../../../../core/constants/constants.dart';
 import '../../../../../core/localization/l10n.dart';
 import '../../../../../core/presentation/views/widgets/elevated_bttn_custom.dart';
 import '../../../../../core/presentation/views/widgets/text_form_field_custom.dart';
