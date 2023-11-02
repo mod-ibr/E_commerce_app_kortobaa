@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/utils/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/constants/assets/assets_images.dart';
 
@@ -28,13 +29,13 @@ class _SplashViewState extends State<SplashView> {
         child: AnimatedOpacity(
           opacity: opacity,
           duration: const Duration(seconds: 2),
-          onEnd: () => Navigator.of(context).pushReplacementNamed(
-            kLogInView,
-          ),
+          // onEnd: () => Navigator.of(context).pushReplacementNamed(
+          //   kLogInView,
+          // ),
           child: Image.asset(
             AssetsImages.logo,
-            height: size.width * 0.6,
-            width: size.width * 0.6,
+            height: 100.sh,
+            width: 50.sw,
             fit: BoxFit.contain,
           ),
         ),
