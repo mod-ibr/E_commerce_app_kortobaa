@@ -8,8 +8,4 @@ class LightPalette {
   static Color redElectric = const Color(0xffE50000);
   static Color blackSilver = const Color(0x00000080);
   static Color blue = const Color(0xff0000CE);
-
-
-
-
 }

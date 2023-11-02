@@ -14,8 +14,6 @@ class PreferenceCubit extends Cubit<PreferenceState> {
   PreferenceCubit({required this.sharedPreferences})
       : super(PreferenceInitial());
 
-
-
   //* For locale
   late String _langCode;
   String get langCode => _langCode;
@@ -34,7 +32,6 @@ class PreferenceCubit extends Cubit<PreferenceState> {
     emit(PreferenceInitial());
     return _langCode;
   }
-
 
   //* For SharedPreferences
   dynamic getDataFromSharedPreference({required String key}) =>
