@@ -24,5 +24,6 @@
   "confirmPassword": "Confirm password",
   "firstName": "First name",
   "lastName": "Last name",
-  "warning": "Warning"
+  "warning": "Warning",
+  "accountCreatedSuccessfully": "Congratulations, account create successfully."
 }

@@ -28,7 +28,7 @@ class LogInViewBodyAuth extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.only(bottom: 13.h),
+              padding: const EdgeInsetsDirectional.only(bottom: 13),
               child: Text(
                 locale.signIn,
                 style: theme.textTheme.headlineSmall?.copyWith(
@@ -37,7 +37,7 @@ class LogInViewBodyAuth extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.only(bottom: 79.h),
+              padding: const EdgeInsetsDirectional.only(bottom: 79),
               child: Text(
                 locale.pleaseLogInToCompletePurchase,
                 style: theme.textTheme.bodyLarge?.copyWith(

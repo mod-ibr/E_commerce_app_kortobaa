@@ -79,10 +79,7 @@ class _LogInViewFormAuthState extends State<LogInViewFormAuth> {
         title: locale.warning,
         content: state.failure.errorMessage ??
             state.failure.exceptionType.toString(),
-        actions: [
-          TextButton(
-              child: Text(locale.ok), onPressed: () => Navigator.pop(context)),
-        ],
+       
       );
     }
   }
