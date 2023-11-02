@@ -15,7 +15,10 @@ void main() async {
 
   runApp(
     MultiBlocProvider(
-      providers: const [],
+      providers: [
+        BlocProvider(
+            create: (_) => di.sl<PreferenceCubit>()..getLocaleFromCache()),
+      ],
       child: const MyApp(),
     ),
   );
@@ -32,7 +35,9 @@ class MyApp extends StatelessWidget {
         app: MaterialApp(
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
-          title: preferenceCubit.langCode == "en" ? 'E-commerce App' : 'متجر إلكتروني',
+          title: preferenceCubit.langCode == "en"
+              ? 'E-commerce App'
+              : 'متجر إلكتروني',
           theme: kLightThemeData,
           locale: Locale(preferenceCubit.langCode),
           onGenerateRoute: AppRouter.generateRoute,
