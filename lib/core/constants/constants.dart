@@ -8,7 +8,7 @@ const String kFontFamily = "Tajawal";
 
 //* Constants for Features, ex: Repository, etc...
 //*Auth:
-
+const String kUserData = "UserData";
 //Validators:
 const emailRegex = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
 

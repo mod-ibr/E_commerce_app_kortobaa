@@ -3,6 +3,7 @@ import 'colors/light_palette.dart';
 
 final ColorScheme kLightColorScheme = ColorScheme.light(
   primary: LightPalette.orange, //FF8E42
+  onPrimary: LightPalette.textGray, //032326
   secondary: LightPalette.blue, //0000CE
   tertiary: Colors.white,
   surface: LightPalette.grayGainsboro, //F5F5F9

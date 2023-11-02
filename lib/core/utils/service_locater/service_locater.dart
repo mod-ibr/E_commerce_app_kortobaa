@@ -2,6 +2,8 @@ import 'package:connectivity_checker/connectivity_checker.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import '../../../features/auth/data/repos/auth_repo.dart';
+import '../../../features/auth/data/repos/auth_repo_impl.dart';
 import '../../data/api_services.dart';
 import '../../presentation/manager/preference_cubit/preference_cubit.dart';
 import 'core/shared_preferences.dart';
@@ -16,6 +18,8 @@ Future<void> setupServiceLocater() async {
   );
 
   //?Auth
+  sl.registerLazySingleton<AuthRepo>(
+      () => AuthRepoImpl(apiServices: sl<ApiServices>()));
 
   //?Notifications
 

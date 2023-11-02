@@ -3,4 +3,6 @@ abstract class AssetsImages {
   static String cmen = "assets/images/cmen.png";
   static String appLogo = "assets/images/app_logo.png";
   static String logo = "assets/images/logo.png";
+  static String signup = "assets/images/signup.png";
+  static String login = "assets/images/login.png";
 }

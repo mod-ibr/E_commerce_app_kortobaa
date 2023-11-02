@@ -40,6 +40,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.0
+  flutter_svg: ^2.0.9
   fluttertoast: ^8.2.2
   get_it: ^7.6.0
   intl: any
@@ -74,6 +75,7 @@ flutter:
     - assets/
     - assets/images/
     - assets/fonts/
+    - assets/icons/
 
 flutter_launcher_icons:
   image_path: "assets/images/app_logo.png"

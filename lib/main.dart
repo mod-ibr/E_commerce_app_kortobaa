@@ -12,6 +12,9 @@ import 'core/utils/app_router.dart';
 import 'core/utils/service_locater/service_locater.dart' as di;
 import 'package:device_preview/device_preview.dart';
 
+import 'features/auth/data/repos/auth_repo.dart';
+import 'features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.setupServiceLocater();
@@ -21,6 +24,12 @@ void main() async {
       providers: [
         BlocProvider(
             create: (_) => di.sl<PreferenceCubit>()..getLocaleFromCache()),
+        BlocProvider(
+          create: (_) => AuthCubit(
+            authRepo: di.sl<AuthRepo>(),
+            preferenceCubit: di.sl<PreferenceCubit>(),
+          ),
+        ),
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,
@@ -39,21 +48,23 @@ class MyApp extends StatelessWidget {
     return BlocBuilder<PreferenceCubit, PreferenceState>(
       builder: (_, state) => ConnectivityAppWrapper(
         app: ScreenUtilInit(
-          designSize: const Size(360, 690),
+          designSize: const Size(360, 795),
           minTextAdapt: true,
           splitScreenMode: true,
-          child: MaterialApp(
-            navigatorKey: navigatorKey,
-            debugShowCheckedModeBanner: false,
-            title: preferenceCubit.langCode == "en"
-                ? 'E-commerce App'
-                : 'متجر إلكتروني',
-            theme: kLightThemeData,
-            locale: Locale(preferenceCubit.langCode),
-            onGenerateRoute: AppRouter.generateRoute,
-            supportedLocales: L10n.supportedLocales,
-            localizationsDelegates: L10n.localizationsDelegates,
-          ),
+          builder: (_, child) {
+            return MaterialApp(
+              navigatorKey: navigatorKey,
+              debugShowCheckedModeBanner: false,
+              title: preferenceCubit.langCode == "en"
+                  ? 'E-commerce App'
+                  : 'متجر إلكتروني',
+              theme: kLightThemeData,
+              locale: Locale(preferenceCubit.langCode),
+              onGenerateRoute: AppRouter.generateRoute,
+              supportedLocales: L10n.supportedLocales,
+              localizationsDelegates: L10n.localizationsDelegates,
+            );
+          },
         ),
       ),
     );
