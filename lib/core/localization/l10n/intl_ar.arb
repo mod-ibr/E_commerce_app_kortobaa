@@ -36,5 +36,6 @@
   "favorite": "المفضلة",
   "profile": "الحساب",
   "loading" : "برجاء الإنتظار, جاري التحميل...",
-  "classifications" : "التصنيفات"
+  "classifications" : "التصنيفات",
+  "noInformationYet" : "لم يتم إضافة معلومات بعد"
 }

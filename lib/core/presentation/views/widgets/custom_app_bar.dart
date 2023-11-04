@@ -15,15 +15,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       backgroundColor: theme.colorScheme.tertiary,
       leading: IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.menu,
-            color: theme.colorScheme.onPrimary,
-          )),
+        onPressed: () {},
+        icon: Icon(
+          Icons.menu,
+          color: theme.colorScheme.onPrimary,
+        ),
+      ),
       actions: [
         IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search, color: theme.colorScheme.onPrimary))
+          onPressed: () {},
+          icon: Icon(Icons.search, color: theme.colorScheme.onPrimary),
+        )
       ],
     );
   }

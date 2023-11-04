@@ -59,6 +59,8 @@ class _MainViewState extends State<MainView> {
               return customTabIcon(
                   iconData: tabIcon!, label: tabLabel, isActive: isActive);
             },
+            blurEffect: true,
+            scaleFactor: 2,
             elevation: 6,
             height: 60.sp,
             activeIndex: shoppingCubit.bottomNavIndex,

@@ -36,5 +36,6 @@
   "favorite" : "Favorite",
   "profile" :"Profile",
   "loading" : "Please Waite, loading...",
-  "classifications" :"Classifications" 
+  "classifications" :"Classifications",
+  "noInformationYet" : "No Information add yet" 
 }
