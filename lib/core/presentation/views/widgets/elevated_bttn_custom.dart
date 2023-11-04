@@ -1,9 +1,4 @@
-import 'package:connectivity_checker/connectivity_checker.dart';
 import 'package:flutter/material.dart';
-
-import '../../../localization/l10n.dart';
-import '../../../utils/functions/toast_message.dart';
-import '../../../utils/service_locater/service_locater.dart' as di;
 
 class ElevatedBttnCustom extends StatelessWidget {
   final String title;
@@ -36,7 +31,7 @@ class ElevatedBttnCustom extends StatelessWidget {
         ignoring: isLoading,
         child: ElevatedButton(
           onPressed: () async {
-            await _onPressed(context);
+            await onTap();
           },
           style: ElevatedButton.styleFrom(
             elevation: elevation,
@@ -64,14 +59,5 @@ class ElevatedBttnCustom extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Future<void> _onPressed(BuildContext context) async {
-    final locale = getL10n(context);
-    if (await di.sl<ConnectivityWrapper>().isConnected) {
-      onTap();
-    } else {
-      showShortToast(locale.notConnectedToInternet);
-    }
   }
 }

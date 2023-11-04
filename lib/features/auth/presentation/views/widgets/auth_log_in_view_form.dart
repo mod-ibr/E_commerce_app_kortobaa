@@ -53,7 +53,7 @@ class _LogInViewFormAuthState extends State<LogInViewFormAuth> {
                 validator: (value) => _validatePassword(value),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 30),
+                padding: const EdgeInsets.only(top: 30),
                 child: ElevatedBttnCustom(
                   isLoading: (state is AuthLoading) ? true : false,
                   width: size.width,
