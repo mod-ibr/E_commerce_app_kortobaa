@@ -1,8 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'package:e_commerce_app/features/shopping/manager/shopping_cubit/shopping_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../manager/shopping_cubit/shopping_cubit.dart';
 
 class MainView extends StatefulWidget {
   MainView({super.key});

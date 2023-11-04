@@ -16,7 +16,7 @@ class CategoriesRepoImpl extends CategoriesRepo {
         await apiServices.get(endPoint: "/api/v1/categories", token: token);
 
     final decodedJson = json.decode(response.body);
-    log("Response from getCategories : $response");
+    log("Response from getCategories : $decodedJson");
 
     if (response.statusCode == 200) {
       Categories categories =

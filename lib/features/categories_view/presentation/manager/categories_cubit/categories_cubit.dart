@@ -1,14 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:e_commerce_app/features/shopping/views/categories_view/presentation/manager/categories_cubit/categories_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../../../core/error/exceptions.dart';
 import '../../../../../../../core/error/failures.dart';
 import '../../../../../../../core/network/network_connection_checker.dart';
 import '../../../../../../../core/presentation/manager/preference_cubit/preference_cubit.dart';
 import '../../../data/models/categories/categories.dart';
 import '../../../data/repos/categories_repo.dart';
+import 'categories_state.dart';
 
 class CategoriesCubit extends Cubit<CategoriesState> {
   final CategoriesRepo categoriesRepo;
