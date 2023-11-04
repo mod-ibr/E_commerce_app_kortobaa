@@ -1,7 +1,9 @@
+import 'package:e_commerce_app/core/presentation/views/widgets/error_widget.dart';
 import 'package:e_commerce_app/core/presentation/views/widgets/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utils/functions/map_failure_to_message.dart';
 import '../manager/categories_cubit/categories_cubit.dart';
 import '../manager/categories_cubit/categories_state.dart';
 
@@ -23,6 +25,9 @@ class _CategoriesViewState extends State<CategoriesView> {
         builder: (context, state) {
           if (state is CategoriesLoading) {
             return const LoadingWidget();
+          } else if (state is CategoriesFailure) {
+            String message = mapFailureToMessage(state.failure, context);
+            return ErrorWidgetCustom(message: message);
           }
           return const SafeArea(
               child: Center(
