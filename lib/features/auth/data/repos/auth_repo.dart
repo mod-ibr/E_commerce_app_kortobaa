@@ -1,18 +1,10 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/data/failures/failure.dart';
-
 import '../models/request_login.dart';
 import '../models/request_register.dart';
 import '../models/response_login.dart';
 import '../models/response_register/response_register.dart';
 
-
 abstract class AuthRepo {
-  Future<Either<Failure, ResponseLogin>> loginUser(
-      {required RequestLogin requestLoginData});
-
-  Future<Either<Failure, ResponseRegister>> registerUser(
+  Future<ResponseLogin> loginUser({required RequestLogin requestLoginData});
+  Future<ResponseRegister> registerUser(
       {required RequestRegister requestRegisterData});
-
 }

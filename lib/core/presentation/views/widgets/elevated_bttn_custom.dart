@@ -48,9 +48,11 @@ class ElevatedBttnCustom extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: isLoading
-                ? CircularProgressIndicator(
-                    color: theme.colorScheme.tertiary,
-                    strokeWidth: 2,
+                ? FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: CircularProgressIndicator(
+                      color: theme.colorScheme.tertiary,
+                    ),
                   )
                 : Text(
                     title,

@@ -7,6 +7,7 @@ import '../../../../../core/localization/l10n.dart';
 import '../../../../../core/presentation/views/widgets/elevated_bttn_custom.dart';
 import '../../../../../core/presentation/views/widgets/text_form_field_custom.dart';
 import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/functions/map_failure_to_message.dart';
 import '../../../data/models/request_register.dart';
 import '../../manager/auth_cubit/auth_cubit.dart';
 
@@ -72,12 +73,8 @@ class _RegisterViewFormAuthState extends State<RegisterViewFormAuth> {
           btnOkOnPress: () => Navigator.pushNamedAndRemoveUntil(
               context, kLogInView, (route) => false));
     } else if (state is AuthFailure) {
-      showWarningAlertDialog(
-        context,
-        title: locale.warning,
-        content: state.failure.errorMessage ??
-            state.failure.exceptionType.toString(),
-      );
+      String message = mapFailureToMessage(state.failure, context);
+      showErrorAlertDialog(context, title: locale.warning, content: message);
     }
   }
 

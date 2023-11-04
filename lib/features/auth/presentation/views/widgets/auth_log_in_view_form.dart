@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/utils/functions/map_failure_to_message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -74,13 +75,8 @@ class _LogInViewFormAuthState extends State<LogInViewFormAuth> {
     if (state is AuthLoggedIn) {
       Navigator.of(context).pushReplacementNamed(kHomeView);
     } else if (state is AuthFailure) {
-      showWarningAlertDialog(
-        context,
-        title: locale.warning,
-        content: state.failure.errorMessage ??
-            state.failure.exceptionType.toString(),
-       
-      );
+      String message = mapFailureToMessage(state.failure, context);
+      showErrorAlertDialog(context, title: locale.warning, content: message);
     }
   }
 

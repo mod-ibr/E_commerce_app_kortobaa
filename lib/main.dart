@@ -1,5 +1,6 @@
 import 'package:connectivity_checker/connectivity_checker.dart';
 import 'package:e_commerce_app/core/constants/constants.dart';
+import 'package:e_commerce_app/core/network/network_connection_checker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,6 +29,7 @@ void main() async {
           create: (_) => AuthCubit(
             authRepo: di.sl<AuthRepo>(),
             preferenceCubit: di.sl<PreferenceCubit>(),
+            networkConnectionChecker: di.sl<NetworkConnectionChecker>(),
           ),
         ),
       ],
