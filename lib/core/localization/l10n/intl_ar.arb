@@ -30,5 +30,9 @@
   "offlineFailureMessage": "مشكلة في الأتصال بالانترنت, الرجاء التاكد من الاتصال",
   "wrongAccountFailureMessage": "لم يتم العثور على حساب نشط مع بيانات الاعتماد المحددة",
   "existAccountFailureMessage": "هذا المستخدم موجود بالفعل",
-  "unexpectedFailureMessage": "خطأ غير متوقع ، يرجى المحاولة مرة أخرى في وقت لاحق ."
+  "unexpectedFailureMessage": "خطأ غير متوقع ، يرجى المحاولة مرة أخرى في وقت لاحق .",
+  "main": "الرئيسية",
+  "categories": "الأقسام",
+  "favorite": "المفضلة",
+  "profile": "الحساب"
 }

@@ -1,8 +1,7 @@
-import 'package:e_commerce_app/features/homeView.dart';
 import 'package:flutter/material.dart';
-
 import '../../features/auth/presentation/views/auth_log_in_view.dart';
 import '../../features/auth/presentation/views/auth_register_view.dart';
+import '../../features/shopping/views/main_view.dart';
 import '../../features/splashView/presentation/views/splash_view.dart';
 import '../presentation/views/error_view.dart';
 
@@ -34,7 +33,7 @@ class AppRouter {
             builder: (context) => const RegisterViewAuth());
       //Home
       case kHomeView:
-        return MaterialPageRoute(builder: (context) => const HomeView());
+        return MaterialPageRoute(builder: (context) => MainView());
       default:
         return MaterialPageRoute(builder: (context) => const ErrorView());
     }
