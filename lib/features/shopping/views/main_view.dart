@@ -31,15 +31,17 @@ class _MainViewState extends State<MainView> {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
                       '352',
-                      style: theme.textTheme.labelLarge
-                          ?.copyWith(color: theme.colorScheme.tertiary),
+                      style: TextStyle(
+                          color: theme.colorScheme.tertiary, fontSize: 14.sp),
                     ),
                     Icon(
                       Icons.shopping_cart,
                       color: theme.colorScheme.tertiary,
+                      size: 24.sp,
                     )
                   ],
                 ),
@@ -78,14 +80,14 @@ class _MainViewState extends State<MainView> {
       children: [
         Icon(
           iconData,
+          size: 24.sp,
           color: isActive
               ? theme.colorScheme.secondary
               : theme.colorScheme.onPrimary,
         ),
-        const SizedBox(height: 8),
         Text(
           label,
-          style: theme.textTheme.labelLarge?.copyWith(
+          style: theme.textTheme.bodyLarge?.copyWith(
             color: isActive
                 ? theme.colorScheme.secondary
                 : theme.colorScheme.onPrimary,
