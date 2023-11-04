@@ -6,6 +6,7 @@ void showErrorAlertDialog(
   String? title,
   Color? titleColor,
   String? content,
+  Function()? btnOkOnPress,
 }) {
   AwesomeDialog(
     context: context,
@@ -17,7 +18,7 @@ void showErrorAlertDialog(
         content ?? "",
       ),
     ),
-    btnOkOnPress: () {},
+    btnOkOnPress: () => btnOkOnPress!(),
   ).show();
 }
 
@@ -26,7 +27,7 @@ void showWarningAlertDialog(
   String? title,
   Color? titleColor,
   String? content,
-  required List<Widget>? actions,
+  Function()? btnOkOnPress,
 }) {
   AwesomeDialog(
     context: context,
@@ -38,7 +39,7 @@ void showWarningAlertDialog(
         content ?? "",
       ),
     ),
-    btnOkOnPress: () {},
+    btnOkOnPress: () => btnOkOnPress!(),
   ).show();
 }
 
@@ -47,7 +48,7 @@ void showSuccessAlertDialog(
   String? title,
   Color? titleColor,
   String? content,
-  required List<Widget>? actions,
+  Function()? btnOkOnPress,
 }) {
   AwesomeDialog(
     context: context,
@@ -59,6 +60,6 @@ void showSuccessAlertDialog(
         content ?? "",
       ),
     ),
-    btnOkOnPress: () {},
+    btnOkOnPress: () => btnOkOnPress!(),
   ).show();
 }

@@ -24,5 +24,11 @@
   "confirmPassword": "Confirm password",
   "firstName": "First name",
   "lastName": "Last name",
-  "warning": "Warning"
+  "warning": "Warning",
+  "accountCreatedSuccessfully": "Congratulations, account created successfully, please log in again",
+  "serverFailureMessage": "Please try again later,Error server...",
+  "offlineFailureMessage": "You are offline, Please Check your Internet Connection",
+  "wrongAccountFailureMessage": "No active account found with the given credentials",
+  "existAccountFailureMessage": "A user with that username already exists.",
+  "unexpectedFailureMessage": "Unexpected Error , Please try again later ."
 }
