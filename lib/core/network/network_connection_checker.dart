@@ -11,4 +11,4 @@ class NetworkConnectionCheckerImpl implements NetworkConnectionChecker {
 
   @override
   Future<bool> get isConnected => internetConnectionChecker.hasConnection;
-} 
+}
