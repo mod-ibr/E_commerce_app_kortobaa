@@ -11,7 +11,7 @@ class ApiServices {
 
   Future<http.Response> get({
     required String endPoint,
-    Map<String, dynamic>? body,
+    required String token,
     Map<String, dynamic>? query,
   }) async {
     final response = await http.get(
@@ -20,6 +20,7 @@ class ApiServices {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'Accept-Language': preferenceCubit.langCode,
+        'Authorization': 'Bearer $token',
       },
     );
 

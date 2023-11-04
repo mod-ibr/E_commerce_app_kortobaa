@@ -1,12 +1,12 @@
-import 'package:e_commerce_app/core/constants/constants.dart';
-import 'package:e_commerce_app/features/shopping/manager/shopping_cubit/shopping_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'core/constants/constants.dart';
 import 'core/presentation/manager/preference_cubit/preference_cubit.dart' as pc;
 import 'core/localization/l10n.dart';
 import 'core/presentation/manager/preference_cubit/preference_cubit.dart';
+import 'core/presentation/manager/shopping_cubit/shopping_cubit.dart';
 import 'core/theme/theme_data.dart';
 import 'core/utils/app_router.dart';
 import 'core/utils/service_locater/service_locater.dart' as di;
@@ -34,7 +34,7 @@ void main() async {
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,
-        builder: (context) => const MyApp(), // Wrap your app
+        builder: (context) => const MyApp(),
       ),
     ),
   );

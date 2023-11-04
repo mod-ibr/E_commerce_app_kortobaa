@@ -34,5 +34,8 @@
   "main" : "Main",
   "categories"  : "Categories",
   "favorite" : "Favorite",
-  "profile" :"Profile"
+  "profile" :"Profile",
+  "loading" : "Please Waite, loading...",
+  "classifications" :"Classifications",
+  "noInformationYet" : "No Information add yet" 
 }
