@@ -59,7 +59,7 @@ class _MainViewState extends State<MainView> {
                   iconData: tabIcon!, label: tabLabel, isActive: isActive);
             },
             elevation: 6,
-            height: 60.h,
+            height: 60.sp,
             activeIndex: shoppingCubit.bottomNavIndex,
             gapLocation: GapLocation.center,
             onTap: (index) => shoppingCubit.showPageByIndex(index),
