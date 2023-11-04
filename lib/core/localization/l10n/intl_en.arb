@@ -25,7 +25,7 @@
   "firstName": "First name",
   "lastName": "Last name",
   "warning": "Warning",
-  "accountCreatedSuccessfully": "Congratulations, account create successfully.",
+  "accountCreatedSuccessfully": "Congratulations, account created successfully, please log in again",
   "serverFailureMessage": "Please try again later,Error server...",
   "offlineFailureMessage": "You are offline, Please Check your Internet Connection",
   "wrongAccountFailureMessage": "No active account found with the given credentials",

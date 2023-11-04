@@ -25,7 +25,7 @@
   "firstName": "الاسم الأول",
   "lastName": "الاسم الأخير",
   "warning": "تحذير",
-  "accountCreatedSuccessfully": "تهانينا، تم إنشاء الحساب بنجاح.",
+  "accountCreatedSuccessfully": "تهانينا، تم إنشاء الحساب بنجاح, برجاء تسجيل الدخول",
   "serverFailureMessage": "حدثت مشكلة في الخادم برجاء المحاولة لاحقا...",
   "offlineFailureMessage": "مشكلة في الأتصال بالانترنت, الرجاء التاكد من الاتصال",
   "wrongAccountFailureMessage": "لم يتم العثور على حساب نشط مع بيانات الاعتماد المحددة",

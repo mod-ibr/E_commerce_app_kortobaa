@@ -20,7 +20,10 @@ void main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider<PreferenceCubit>(
-            create: (_) => di.sl<PreferenceCubit>()..getLocaleFromCache()),
+          create: (_) => di.sl<PreferenceCubit>()
+            ..getLocaleFromCache()
+            ..getUserData(),
+        ),
         BlocProvider<AuthCubit>(
           create: (_) => di.sl<AuthCubit>(),
         ),
