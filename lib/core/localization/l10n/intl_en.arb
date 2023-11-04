@@ -30,5 +30,9 @@
   "offlineFailureMessage": "You are offline, Please Check your Internet Connection",
   "wrongAccountFailureMessage": "No active account found with the given credentials",
   "existAccountFailureMessage": "A user with that username already exists.",
-  "unexpectedFailureMessage": "Unexpected Error , Please try again later ."
+  "unexpectedFailureMessage": "Unexpected Error , Please try again later .",
+  "main" : "Main",
+  "categories"  : "Categories",
+  "favorite" : "Favorite",
+  "profile" :"Profile"
 }

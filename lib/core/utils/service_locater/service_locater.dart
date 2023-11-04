@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/network/network_connection_checker.dart';
 import 'package:e_commerce_app/features/auth/data/repos/auth_repo.dart';
 import 'package:e_commerce_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:e_commerce_app/features/shopping/manager/shopping_cubit/shopping_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
@@ -26,6 +27,9 @@ Future<void> setupServiceLocater() async {
       networkConnectionChecker: sl(),
     ),
   );
+
+// Main Cubit
+  sl.registerFactory<ShoppingCubit>(() => ShoppingCubit());
 
   // Repository
   sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: sl()));

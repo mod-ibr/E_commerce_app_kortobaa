@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/constants/constants.dart';
+import 'package:e_commerce_app/features/shopping/manager/shopping_cubit/shopping_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,6 +27,9 @@ void main() async {
         ),
         BlocProvider<AuthCubit>(
           create: (_) => di.sl<AuthCubit>(),
+        ),
+        BlocProvider<ShoppingCubit>(
+          create: (_) => di.sl<ShoppingCubit>(),
         ),
       ],
       child: DevicePreview(
