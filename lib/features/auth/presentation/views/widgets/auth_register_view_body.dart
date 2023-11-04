@@ -22,7 +22,7 @@ class RegisterViewBodyAuth extends StatelessWidget {
             Container(
               margin: EdgeInsetsDirectional.only(top: 54.h, bottom: 32.h),
               child: Image.asset(
-                AssetsImages.login,
+                AssetsImages.signUp,
                 width: 131.w,
                 height: 120.h,
               ),
