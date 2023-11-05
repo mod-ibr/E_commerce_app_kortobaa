@@ -16,6 +16,8 @@ class CategoriesViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    getCategoriesCubit(context).getCategories();
+
     final locale = getL10n(context);
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ void main() async {
         BlocProvider<AuthCubit>(create: (_) => di.sl<AuthCubit>()),
         BlocProvider<ShoppingCubit>(create: (_) => di.sl<ShoppingCubit>()),
         BlocProvider<ProductsCubit>(create: (_) => di.sl<ProductsCubit>()),
+        BlocProvider<CategoriesCubit>(create: (_) => di.sl<CategoriesCubit>()),
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,

@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
     final locale = getL10n(context);
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
-      appBar: CustomAppBar(title: locale.classifications),
+      appBar: CustomAppBar(title: locale.main),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.sp),
         child: const HomeViewBody(),

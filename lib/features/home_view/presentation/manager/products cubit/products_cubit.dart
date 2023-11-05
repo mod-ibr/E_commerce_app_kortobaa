@@ -48,5 +48,5 @@ class ProductsCubit extends Cubit<ProductsState> {
   }
 }
 
-ProductsCubit getJobDescriptionCubit(BuildContext context) =>
+ProductsCubit getProductsCubit(BuildContext context) =>
     BlocProvider.of<ProductsCubit>(context, listen: false);

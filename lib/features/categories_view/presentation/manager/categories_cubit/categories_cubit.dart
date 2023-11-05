@@ -48,5 +48,5 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   }
 }
 
-CategoriesCubit getJobDescriptionCubit(BuildContext context) =>
+CategoriesCubit getCategoriesCubit(BuildContext context) =>
     BlocProvider.of<CategoriesCubit>(context, listen: false);
