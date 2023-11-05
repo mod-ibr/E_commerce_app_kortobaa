@@ -12,6 +12,7 @@ import 'core/utils/app_router.dart';
 import 'core/utils/service_locater/service_locater.dart' as di;
 import 'package:device_preview/device_preview.dart';
 import 'features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'features/home_view/presentation/manager/products cubit/products_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,7 @@ void main() async {
         BlocProvider<PreferenceCubit>(create: (_) => di.sl<PreferenceCubit>()),
         BlocProvider<AuthCubit>(create: (_) => di.sl<AuthCubit>()),
         BlocProvider<ShoppingCubit>(create: (_) => di.sl<ShoppingCubit>()),
+        BlocProvider<ProductsCubit>(create: (_) => di.sl<ProductsCubit>()),
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,

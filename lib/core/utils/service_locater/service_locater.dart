@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/core/network/network_connection_checker.dart';
 import 'package:e_commerce_app/features/auth/data/repos/auth_repo.dart';
 import 'package:e_commerce_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:e_commerce_app/features/home_view/data/repos/products_repo.dart';
+import 'package:e_commerce_app/features/home_view/data/repos/products_repo_impl.dart';
+import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
 
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -45,10 +48,20 @@ Future<void> setupServiceLocater() async {
       networkConnectionChecker: sl(),
     )..getCategories(),
   );
+  // Home view Cubit
+  sl.registerFactory<ProductsCubit>(
+    () => ProductsCubit(
+      productsRepo: sl(),
+      preferenceCubit: sl(),
+      networkConnectionChecker: sl(),
+    )..getProducts(),
+  );
   // Repository
   sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: sl()));
   sl.registerLazySingleton<CategoriesRepo>(
       () => CategoriesRepoImpl(apiServices: sl()));
+  sl.registerLazySingleton<ProductsRepo>(
+      () => ProductsRepoImpl(apiServices: sl()));
   //! Core
 
   // Services

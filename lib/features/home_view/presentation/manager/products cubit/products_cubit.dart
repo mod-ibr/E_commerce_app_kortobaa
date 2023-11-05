@@ -7,7 +7,7 @@ import '../../../../../../../core/error/failures.dart';
 import '../../../../../../../core/network/network_connection_checker.dart';
 import '../../../../../../../core/presentation/manager/preference_cubit/preference_cubit.dart';
 import '../../../data/repos/products_repo.dart';
-import 'products_cubit_state.dart';
+import 'products_state.dart';
 
 class ProductsCubit extends Cubit<ProductsState> {
   final ProductsRepo productsRepo;

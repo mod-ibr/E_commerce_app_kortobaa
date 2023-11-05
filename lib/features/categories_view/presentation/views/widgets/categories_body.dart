@@ -11,8 +11,8 @@ import '../../../../../core/utils/functions/map_failure_to_message.dart';
 import '../../manager/categories_cubit/categories_cubit.dart';
 import '../../manager/categories_cubit/categories_state.dart';
 
-class CategoriesBody extends StatelessWidget {
-  const CategoriesBody({super.key});
+class CategoriesViewBody extends StatelessWidget {
+  const CategoriesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,7 +18,10 @@ class ShoppingCubit extends Cubit<ShoppingState> {
   ShoppingCubit() : super(ShoppingInitialState());
   int bottomNavIndex = 0;
   final List<Widget> pages = [
-    const HomeView(),
+    BlocProvider<ProductsCubit>(
+      create: (_) => di.sl<ProductsCubit>()..getProducts(),
+      child: const HomeView(),
+    ),
     BlocProvider<CategoriesCubit>(
       create: (_) => di.sl<CategoriesCubit>()..getCategories(),
       child: const CategoriesView(),

@@ -21,7 +21,7 @@ class _CategoriesViewState extends State<CategoriesView> {
       appBar: CustomAppBar(title: locale.classifications),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.sp),
-        child: const CategoriesBody(),
+        child: const CategoriesViewBody(),
       ),
     );
   }
