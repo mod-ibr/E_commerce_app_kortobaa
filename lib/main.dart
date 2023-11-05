@@ -20,17 +20,9 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<PreferenceCubit>(
-          create: (_) => di.sl<PreferenceCubit>()
-            ..getLocaleFromCache()
-            ..getUserData(),
-        ),
-        BlocProvider<AuthCubit>(
-          create: (_) => di.sl<AuthCubit>(),
-        ),
-        BlocProvider<ShoppingCubit>(
-          create: (_) => di.sl<ShoppingCubit>(),
-        ),
+        BlocProvider<PreferenceCubit>(create: (_) => di.sl<PreferenceCubit>()),
+        BlocProvider<AuthCubit>(create: (_) => di.sl<AuthCubit>()),
+        BlocProvider<ShoppingCubit>(create: (_) => di.sl<ShoppingCubit>()),
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,

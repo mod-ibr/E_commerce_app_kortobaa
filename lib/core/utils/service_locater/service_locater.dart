@@ -20,9 +20,12 @@ final sl = GetIt.instance;
 Future<void> setupServiceLocater() async {
   //! Features
 // App  Cubit
-  sl.registerLazySingleton<PreferenceCubit>(
-    () => PreferenceCubit(sharedPreferences: sl<SharedPreferences>()),
+  sl.registerFactory<PreferenceCubit>(
+    () => PreferenceCubit(sharedPreferences: sl<SharedPreferences>())
+      ..getLocaleFromCache()
+      ..getUserData(),
   );
+
   sl.registerFactory<ShoppingCubit>(() => ShoppingCubit());
 
   // Auth Cubit
@@ -40,7 +43,7 @@ Future<void> setupServiceLocater() async {
       categoriesRepo: sl(),
       preferenceCubit: sl(),
       networkConnectionChecker: sl(),
-    ),
+    )..getCategories(),
   );
   // Repository
   sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: sl()));
