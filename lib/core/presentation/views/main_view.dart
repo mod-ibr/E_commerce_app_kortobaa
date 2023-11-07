@@ -15,6 +15,8 @@ class MainView extends StatefulWidget {
 class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
+    bool keyboardIsOpen = MediaQuery.of(context).viewInsets.bottom != 0;
+
     ShoppingCubit shoppingCubit = getShoppingCubit(context);
     final theme = Theme.of(context);
     final Map<String, IconData> tabsIcons = shoppingCubit.getTabsIcons(context);
@@ -23,28 +25,31 @@ class _MainViewState extends State<MainView> {
         return Scaffold(
           backgroundColor: theme.colorScheme.surface,
           body: shoppingCubit.pages[shoppingCubit.bottomNavIndex],
-          floatingActionButton: SizedBox(
-            width: 60.w,
-            height: 60.w,
-            child: FloatingActionButton(
-              backgroundColor: theme.colorScheme.primary,
-              onPressed: () => shoppingCubit.showCartPage(),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '352',
-                      style: TextStyle(
-                          color: theme.colorScheme.tertiary, fontSize: 14.sp),
-                    ),
-                    Icon(
-                      Icons.shopping_cart,
-                      color: theme.colorScheme.tertiary,
-                      size: 24.sp,
-                    )
-                  ],
+          floatingActionButton: Visibility(
+            visible: !keyboardIsOpen,
+            child: SizedBox(
+              width: 60.w,
+              height: 60.w,
+              child: FloatingActionButton(
+                backgroundColor: theme.colorScheme.primary,
+                onPressed: () => shoppingCubit.showCartPage(),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '352',
+                        style: TextStyle(
+                            color: theme.colorScheme.tertiary, fontSize: 14.sp),
+                      ),
+                      Icon(
+                        Icons.shopping_cart,
+                        color: theme.colorScheme.tertiary,
+                        size: 24.sp,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
