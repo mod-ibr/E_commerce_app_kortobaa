@@ -32,36 +32,36 @@ class CategoryCircleAvatarHomeView extends StatelessWidget {
     final theme = Theme.of(context);
 
     return CircleAvatar(
+      backgroundColor: theme.colorScheme.primary,
       radius: 28.sp,
       child: SizedBox(
-        child: SizedBox(
-          width: 100.sp,
-          height: 100.sp,
-          child: ClipOval(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            child: (imageLink != null && imageLink.isNotEmpty)
-                ? CachedNetworkImage(
-                    imageUrl: imageLink,
-                    fit: BoxFit.fill,
-                    placeholder: (context, url) {
-                      if (url.isEmpty) {
-                        return Container(
-                          color: theme.colorScheme.shadow,
-                        );
-                      }
+        width: 100.sp,
+        height: 100.sp,
+        child: ClipOval(
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          child: (imageLink != null && imageLink.isNotEmpty)
+              ? CachedNetworkImage(
+                  imageUrl: imageLink,
+                  fit: BoxFit.fill,
+                  placeholder: (context, url) {
+                    if (url.isEmpty) {
                       return Container(
-                        alignment: Alignment.center,
-                        child: const CircularProgressIndicator(),
+                        color: theme.colorScheme.shadow,
                       );
-                    },
-                    errorWidget: (context, url, error) => Container(
-                      color: theme.colorScheme.shadow,
-                    ),
-                  )
-                : Container(
+                    }
+                    return Container(
+                      alignment: Alignment.center,
+                      child: CircularProgressIndicator(
+                          color: theme.colorScheme.tertiary),
+                    );
+                  },
+                  errorWidget: (context, url, error) => Container(
                     color: theme.colorScheme.shadow,
                   ),
-          ),
+                )
+              : Container(
+                  color: theme.colorScheme.shadow,
+                ),
         ),
       ),
     );

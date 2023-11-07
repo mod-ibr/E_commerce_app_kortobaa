@@ -35,8 +35,13 @@
   "categories": "الأقسام",
   "favorite": "المفضلة",
   "profile": "الحساب",
-  "loading" : "برجاء الإنتظار, جاري التحميل...",
-  "classifications" : "التصنيفات",
-  "noInformationYet" : "لم يتم إضافة معلومات بعد",
-  "searchFor" :"عم تبحث ؟"
+  "loading": "برجاء الإنتظار, جاري التحميل...",
+  "classifications": "التصنيفات",
+  "noInformationYet": "لم يتم إضافة معلومات بعد",
+  "searchFor": "عم تبحث ؟",
+  "recentlyAdded": "وصل حديثا",
+  "seeAll": "عرض الكل",
+  "mostPopular" : "الأكثر شعبية",
+  "noTitle":"لا يوجد عنوان",
+  "egp":"ج.م"
 }

@@ -19,11 +19,13 @@ class _HomeViewState extends State<HomeView> {
       body: Column(
         children: [
           const AppBarHomeView(),
-          Container(
-            color: theme.colorScheme.surface,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15.sp),
-              child: const HomeViewBody(),
+          Expanded(
+            child: Container(
+              color: theme.colorScheme.surface,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.sp),
+                child: const HomeViewBody(),
+              ),
             ),
           ),
         ],

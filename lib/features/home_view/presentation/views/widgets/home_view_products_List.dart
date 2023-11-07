@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/localization/l10n.dart';
 import '../../../../../core/presentation/views/widgets/inline_error_widget.dart';
 import '../../../../../core/presentation/views/widgets/loading_widget.dart';
@@ -9,6 +10,7 @@ import '../../../data/models/products/products.dart';
 import '../../../data/models/products/result.dart';
 import '../../manager/products cubit/products_cubit.dart';
 import '../../manager/products cubit/products_state.dart';
+import 'home_view_product_card.dart';
 
 class ProductsListHomeView extends StatelessWidget {
   const ProductsListHomeView({super.key});
@@ -47,14 +49,18 @@ class ProductsListHomeView extends StatelessWidget {
       );
     }
     return SizedBox(
-      height: 150,
-      child: ListView.builder(
+      height: 0.24.sh,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
         itemCount: allProducts.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () =>
               log("Category of ${allProducts[index].name} was selected"),
-          child: Text("${allProducts[index].name}"),
+          child: ProductCardHomeView(
+            product: allProducts[index],
+          ),
         ),
+        separatorBuilder: (context, index) => SizedBox(width: 12.sp),
       ),
     );
   }
