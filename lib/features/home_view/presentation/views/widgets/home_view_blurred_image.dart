@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BlurredImageHomeView extends StatelessWidget {
   final String image;
@@ -13,18 +14,22 @@ class BlurredImageHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final theme = Theme.of(context);
+    return SizedBox(
       width: double.infinity,
       height: height,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          alignment: Alignment.topCenter,
-          fit: BoxFit.fitWidth,
-          image: AssetImage(image),
-        ),
-      ),
       child: Stack(
+        alignment: Alignment.center,
         children: <Widget>[
+          Align(
+            alignment: AlignmentDirectional.topCenter,
+            child: Image.asset(
+              image,
+              height: height * 0.5,
+              width: 1.sw,
+              fit: BoxFit.cover,
+            ),
+          ),
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(
@@ -32,7 +37,7 @@ class BlurredImageHomeView extends StatelessWidget {
                 sigmaY: 20,
               ),
               child: Container(
-                color: Colors.white.withOpacity(0.60),
+                color: theme.colorScheme.surface.withOpacity(0.60),
               ),
             ),
           ),

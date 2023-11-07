@@ -10,5 +10,6 @@ final ColorScheme kLightColorScheme = ColorScheme.light(
     onTertiary: LightPalette.black, //000000
     error: LightPalette.redElectric, //E50000
     shadow: LightPalette.blackSilver, //707070
-    primaryContainer: LightPalette.offWhite // FFFFFF
+    primaryContainer: LightPalette.offWhite, // FFFFFF
+    scrim: LightPalette.gray //#D4D4D4
     );

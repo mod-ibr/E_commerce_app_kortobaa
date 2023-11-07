@@ -14,7 +14,7 @@ class SearchFieldHomeView extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         isDense: true,
-        contentPadding: const EdgeInsets.fromLTRB(8, 8, 8, 0),
+        contentPadding: const EdgeInsets.all(0),
         fillColor: theme.colorScheme.tertiary.withOpacity(0.5),
         hintText: locale.searchFor,
         prefixIcon: Icon(

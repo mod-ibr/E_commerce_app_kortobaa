@@ -8,6 +8,12 @@ final class ProductsInitialSate extends ProductsState {}
 
 final class ProductsLoading extends ProductsState {}
 
+final class ProductImageSliderChanged extends ProductsState {
+  final int index;
+
+  ProductImageSliderChanged({required this.index});
+}
+
 final class ProductsSuccessState extends ProductsState {
   final Products products;
 
