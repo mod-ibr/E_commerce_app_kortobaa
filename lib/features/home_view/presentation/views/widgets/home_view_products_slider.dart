@@ -4,17 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class ProductsSliderHomeView extends StatelessWidget {
+class ProductsSliderHomeView extends StatefulWidget {
   final double height;
-  ProductsSliderHomeView({super.key, required this.height});
+  const ProductsSliderHomeView({super.key, required this.height});
 
+  @override
+  State<ProductsSliderHomeView> createState() => _ProductsSliderHomeViewState();
+}
+
+class _ProductsSliderHomeViewState extends State<ProductsSliderHomeView> {
   final controller = PageController(viewportFraction: 1, keepPage: true);
+  @override
+  void initState() {
+    getProductsCubit(context).selectedSliderImage = 0;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final productsCubitProvider = getProductsCubit(context);
     final imagesList = productsCubitProvider.productsImageSliderList;
     final theme = Theme.of(context);
-    final widgetHeight = height * 0.55;
+    final widgetHeight = widget.height * 0.55;
     return SizedBox(
       height: widgetHeight,
       child: Column(
@@ -24,6 +35,7 @@ class ProductsSliderHomeView extends StatelessWidget {
           SizedBox(
             height: widgetHeight,
             child: PageView.builder(
+              allowImplicitScrolling: true,
               onPageChanged: (value) => productsCubitProvider
                   .sliderOnChange(value % imagesList.length),
               physics: const BouncingScrollPhysics(),
