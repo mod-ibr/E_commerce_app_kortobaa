@@ -1,7 +1,5 @@
-import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/localization/l10n.dart';
 import '../../../../features/cart_view/presentation/views/cart_view.dart';
 import '../../../../features/categories_view/presentation/views/categories_view.dart';
