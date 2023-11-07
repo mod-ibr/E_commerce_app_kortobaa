@@ -21,7 +21,7 @@ class ProductsSliderHomeView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Container(
-            padding: EdgeInsetsDirectional.only(top: 8.sp, bottom: 19.sp),
+            padding: EdgeInsetsDirectional.symmetric(vertical: 8.sp),
             height: widgetHeight * 0.9,
             child: PageView.builder(
               onPageChanged: (value) => productsCubitProvider
