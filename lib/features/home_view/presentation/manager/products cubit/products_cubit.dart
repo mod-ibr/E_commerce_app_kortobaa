@@ -16,6 +16,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   final NetworkConnectionChecker networkConnectionChecker;
   final productsImageSliderList = [AssetsImages.add, AssetsImages.cmen];
   int selectedSliderImage = 0;
+  Products? products;
   ProductsCubit({
     required this.productsRepo,
     required this.preferenceCubit,
@@ -29,6 +30,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     result.fold(
       (failure) => emit(ProductsFailure(failure: failure)),
       (products) async {
+        this.products = products;
         emit(ProductsSuccessState(products: products));
       },
     );

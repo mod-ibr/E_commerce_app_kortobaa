@@ -15,7 +15,8 @@ class BlurredImageHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SizedBox(
+    return Container(
+      color: theme.colorScheme.surface,
       width: double.infinity,
       height: height,
       child: Stack(
@@ -25,7 +26,7 @@ class BlurredImageHomeView extends StatelessWidget {
             alignment: AlignmentDirectional.topCenter,
             child: Image.asset(
               image,
-              height: height * 0.5,
+              height: height * 0.4,
               width: 1.sw,
               fit: BoxFit.cover,
             ),

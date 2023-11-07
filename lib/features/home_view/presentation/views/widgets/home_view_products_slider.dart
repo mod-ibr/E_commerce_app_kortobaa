@@ -14,15 +14,15 @@ class ProductsSliderHomeView extends StatelessWidget {
     final productsCubitProvider = getProductsCubit(context);
     final imagesList = productsCubitProvider.productsImageSliderList;
     final theme = Theme.of(context);
-    final widgetHeight = height * 0.6;
+    final widgetHeight = height * 0.55;
     return SizedBox(
       height: widgetHeight,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Container(
-            padding: EdgeInsetsDirectional.symmetric(vertical: 8.sp),
-            height: widgetHeight * 0.9,
+          SizedBox(
+            height: widgetHeight,
             child: PageView.builder(
               onPageChanged: (value) => productsCubitProvider
                   .sliderOnChange(value % imagesList.length),

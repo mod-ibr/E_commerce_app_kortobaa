@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:e_commerce_app/core/utils/functions/map_failure_to_message.dart';
+import 'package:e_commerce_app/features/categories_view/data/models/categories/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,38 +20,52 @@ class CategoriesListHomeView extends StatelessWidget {
     final locale = getL10n(context);
     return BlocBuilder<CategoriesCubit, CategoriesState>(
       builder: (context, state) {
+        if (state is CategoriesLoading) {
+          return const LoadingWidget();
+        }
         if (state is CategoriesSuccessState) {
-          List<cat.Result>? allCategories = state.categories.results;
-          if (allCategories == null || allCategories.isEmpty) {
-            return Center(
-              child: Text(locale.noInformationYet),
-            );
-          }
-          return SizedBox(
-            height: 80.sp,
-            child: ListView.separated(
-              primary: false,
-              shrinkWrap: true,
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: allCategories.length,
-              itemBuilder: (context, index) => GestureDetector(
-                onTap: () => log(
-                    "Category of ${allCategories[index].name} was selected"),
-                child: CategoryCircleAvatarHomeView(
-                  imageLink: allCategories[index].imageLink,
-                  label: allCategories[index].name,
-                ),
-              ),
-              separatorBuilder: (context, index) => SizedBox(width: 8.sp),
-            ),
-          );
+          successCategories(categories: state.categories, context: context);
         } else if (state is CategoriesFailure) {
           String message = mapFailureToMessage(state.failure, context);
           return ErrorWidgetCustom(message: message);
         }
-        return const LoadingWidget();
+        Categories? categories = getCategoriesCubit(context).categories;
+        if (categories != null) {
+          return successCategories(categories: categories, context: context);
+        }
+        return ErrorWidgetCustom(message: locale.serverFailureMessage);
       },
+    );
+  }
+
+  Widget successCategories(
+      {required Categories categories, required BuildContext context}) {
+    final locale = getL10n(context);
+
+    List<cat.Result>? allCategories = categories.results;
+    if (allCategories == null || allCategories.isEmpty) {
+      return Center(
+        child: Text(locale.noInformationYet),
+      );
+    }
+    return SizedBox(
+      height: 80.sp,
+      child: ListView.separated(
+        primary: false,
+        shrinkWrap: true,
+        physics: const BouncingScrollPhysics(),
+        scrollDirection: Axis.horizontal,
+        itemCount: allCategories.length,
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () =>
+              log("Category of ${allCategories[index].name} was selected"),
+          child: CategoryCircleAvatarHomeView(
+            imageLink: allCategories[index].imageLink,
+            label: allCategories[index].name,
+          ),
+        ),
+        separatorBuilder: (context, index) => SizedBox(width: 8.sp),
+      ),
     );
   }
 }

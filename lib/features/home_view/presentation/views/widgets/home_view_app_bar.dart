@@ -15,31 +15,28 @@ class AppBarHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = getL10n(context);
-    final double height = 0.45.sh;
+    final double height = 0.75.sw;
     final productsCubitProvider = getProductsCubit(context);
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
-        return Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: Colors.green, width: 2)),
-          child: BlurredImageHomeView(
-            image: productsCubitProvider.productsImageSliderList[
-                productsCubitProvider.selectedSliderImage],
-            height: height,
-            child: SafeArea(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.sp),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.only(bottom: 8.sp, top: 4.sp),
-                      child: AppBarHeaderHomeView(title: locale.main),
-                    ),
-                    const SearchFieldHomeView(),
-                    ProductsSliderHomeView(height: height)
-                  ],
-                ),
+        return BlurredImageHomeView(
+          image: productsCubitProvider.productsImageSliderList[
+              productsCubitProvider.selectedSliderImage],
+          height: height,
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15.sp),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.only(bottom: 8.sp, top: 4.sp),
+                    child: AppBarHeaderHomeView(title: locale.main),
+                  ),
+                  const SearchFieldHomeView(),
+                  Expanded(child: ProductsSliderHomeView(height: height))
+                ],
               ),
             ),
           ),

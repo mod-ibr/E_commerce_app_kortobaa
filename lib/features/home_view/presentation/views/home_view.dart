@@ -16,16 +16,17 @@ class _HomeViewState extends State<HomeView> {
     final theme = Theme.of(context);
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const AppBarHomeView(),
-            Padding(
+      body: Column(
+        children: [
+          const AppBarHomeView(),
+          Container(
+            color: theme.colorScheme.surface,
+            child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 15.sp),
               child: const HomeViewBody(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
