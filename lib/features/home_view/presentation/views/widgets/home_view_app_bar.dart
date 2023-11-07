@@ -1,44 +1,33 @@
-import 'dart:developer';
-import 'dart:ui';
-
 import 'package:e_commerce_app/core/constants/assets/assets_images.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/homw_view_blurred_image.dart';
+import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_app_bar_header.dart';
+import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_search_field.dart';
+import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_blurred_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../core/localization/l10n.dart';
 
 class AppBarHomeView extends StatelessWidget {
-  final String title;
-  const AppBarHomeView({super.key, required this.title});
+  const AppBarHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final locale = getL10n(context);
+
     return BlurredImageHomeView(
       image: AssetsImages.add,
       height: 0.3.sh,
       child: SafeArea(
-        child: Column(
-          children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
-              children: [
-                Align(
-                  alignment: AlignmentDirectional.centerStart,
-                  child: IconButton(
-                    icon: const Icon(Icons.menu),
-                    onPressed: () {
-                      log("Menu Button is Tapped");
-                    },
-                  ),
-                ),
-                Text(
-                  title,
-                  style: theme.textTheme.titleMedium
-                      ?.copyWith(color: theme.colorScheme.onTertiary),
-                ),
-              ],
-            )
-          ],
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15.sp),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsetsDirectional.symmetric(vertical: 13),
+                child: AppBarHeaderHomeView(title: locale.main),
+              ),
+              const SearchFieldHomeView()
+            ],
+          ),
         ),
       ),
     );

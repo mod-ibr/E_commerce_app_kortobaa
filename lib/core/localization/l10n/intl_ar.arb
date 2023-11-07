@@ -37,5 +37,6 @@
   "profile": "الحساب",
   "loading" : "برجاء الإنتظار, جاري التحميل...",
   "classifications" : "التصنيفات",
-  "noInformationYet" : "لم يتم إضافة معلومات بعد"
+  "noInformationYet" : "لم يتم إضافة معلومات بعد",
+  "searchFor" :"عم تبحث ؟"
 }
