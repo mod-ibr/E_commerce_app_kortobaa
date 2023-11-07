@@ -1,13 +1,13 @@
 import 'dart:developer';
-import 'package:e_commerce_app/core/utils/functions/map_failure_to_message.dart';
-import 'package:e_commerce_app/features/categories_view/data/models/categories/categories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/localization/l10n.dart';
-import '../../../../../core/presentation/views/widgets/error_widget.dart';
+import '../../../../../core/presentation/views/widgets/inline_error_widget.dart';
 import '../../../../../core/presentation/views/widgets/loading_widget.dart';
-import '../../../../categories_view/data/models/categories/result.dart' as cat;
+import '../../../../../core/utils/functions/map_failure_to_message.dart';
+import '../../../../categories_view/data/models/categories/categories.dart';
+import '../../../../categories_view/data/models/categories/result.dart';
 import '../../../../categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
 import '../../../../categories_view/presentation/manager/categories_cubit/categories_state.dart';
 import 'home_view_category_circle_avatar.dart';
@@ -27,13 +27,13 @@ class CategoriesListHomeView extends StatelessWidget {
           successCategories(categories: state.categories, context: context);
         } else if (state is CategoriesFailure) {
           String message = mapFailureToMessage(state.failure, context);
-          return ErrorWidgetCustom(message: message);
+          return InlineErrorWidgetCustom(message: message);
         }
         Categories? categories = getCategoriesCubit(context).categories;
         if (categories != null) {
           return successCategories(categories: categories, context: context);
         }
-        return ErrorWidgetCustom(message: locale.serverFailureMessage);
+        return InlineErrorWidgetCustom(message: locale.serverFailureMessage);
       },
     );
   }
@@ -42,7 +42,7 @@ class CategoriesListHomeView extends StatelessWidget {
       {required Categories categories, required BuildContext context}) {
     final locale = getL10n(context);
 
-    List<cat.Result>? allCategories = categories.results;
+    List<Result>? allCategories = categories.results;
     if (allCategories == null || allCategories.isEmpty) {
       return Center(
         child: Text(locale.noInformationYet),

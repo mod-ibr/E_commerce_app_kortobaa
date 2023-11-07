@@ -17,13 +17,14 @@ class ErrorWidgetCustom extends StatelessWidget {
           children: [
             Icon(
               Icons.miscellaneous_services_rounded,
-              size: 100.h,
+              size: 0.4.sw,
               color: theme.colorScheme.primary,
             ),
             SizedBox(width: 24.sp),
             Text(
               message,
               style: theme.textTheme.displaySmall,
+              textAlign: TextAlign.center,
             ),
           ],
         ),
