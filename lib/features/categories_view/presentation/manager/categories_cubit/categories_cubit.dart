@@ -13,6 +13,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   final CategoriesRepo categoriesRepo;
   final PreferenceCubit preferenceCubit;
   final NetworkConnectionChecker networkConnectionChecker;
+  Categories? categories;
 
   CategoriesCubit({
     required this.categoriesRepo,
@@ -27,6 +28,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
     result.fold(
       (failure) => emit(CategoriesFailure(failure: failure)),
       (categories) async {
+        this.categories = categories;
         emit(CategoriesSuccessState(categories: categories));
       },
     );
@@ -48,5 +50,5 @@ class CategoriesCubit extends Cubit<CategoriesState> {
   }
 }
 
-CategoriesCubit getJobDescriptionCubit(BuildContext context) =>
+CategoriesCubit getCategoriesCubit(BuildContext context) =>
     BlocProvider.of<CategoriesCubit>(context, listen: false);

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,6 +13,7 @@ import 'core/utils/app_router.dart';
 import 'core/utils/service_locater/service_locater.dart' as di;
 import 'package:device_preview/device_preview.dart';
 import 'features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'features/home_view/presentation/manager/products cubit/products_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,17 +22,11 @@ void main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<PreferenceCubit>(
-          create: (_) => di.sl<PreferenceCubit>()
-            ..getLocaleFromCache()
-            ..getUserData(),
-        ),
-        BlocProvider<AuthCubit>(
-          create: (_) => di.sl<AuthCubit>(),
-        ),
-        BlocProvider<ShoppingCubit>(
-          create: (_) => di.sl<ShoppingCubit>(),
-        ),
+        BlocProvider<PreferenceCubit>(create: (_) => di.sl<PreferenceCubit>()),
+        BlocProvider<AuthCubit>(create: (_) => di.sl<AuthCubit>()),
+        BlocProvider<ShoppingCubit>(create: (_) => di.sl<ShoppingCubit>()),
+        BlocProvider<ProductsCubit>(create: (_) => di.sl<ProductsCubit>()),
+        BlocProvider<CategoriesCubit>(create: (_) => di.sl<CategoriesCubit>()),
       ],
       child: DevicePreview(
         enabled: !kReleaseMode,

@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/localization/l10n.dart';
 import '../../../../features/cart_view/presentation/views/cart_view.dart';
-import '../../../../features/categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
 import '../../../../features/categories_view/presentation/views/categories_view.dart';
 import '../../../../features/favorite/presentation/views/favorite_view.dart';
 import '../../../../features/home_view/presentation/views/home_view.dart';
 import '../../../../features/products_view/presentation/views/products_view.dart';
 import '../../../../features/profile_view/presentation/views/profile_view.dart';
-import '../../../utils/service_locater/service_locater.dart' as di;
 
 part 'shopping_state.dart';
 
@@ -18,10 +15,7 @@ class ShoppingCubit extends Cubit<ShoppingState> {
   int bottomNavIndex = 0;
   final List<Widget> pages = [
     const HomeView(),
-    BlocProvider<CategoriesCubit>(
-      create: (_) => di.sl<CategoriesCubit>()..getCategories(),
-      child: const CategoriesView(),
-    ),
+    const CategoriesView(),
     const FavoriteView(),
     const ProfileView(),
     const CartView(),
