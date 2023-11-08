@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:e_commerce_app/core/localization/l10n.dart';
 import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_categories_list.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_products_List.dart';
+import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_products_list.dart';
 import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

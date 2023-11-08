@@ -47,6 +47,7 @@ dependencies:
   http: ^1.1.0
   internet_connection_checker: ^1.0.0+1
   intl: any
+  pull_to_refresh: ^2.0.0
   rename: ^3.0.1
   shared_preferences: ^2.2.0
   smooth_page_indicator: ^1.1.0
