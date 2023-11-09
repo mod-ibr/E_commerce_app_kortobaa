@@ -7,6 +7,7 @@ import '../../../../../../../core/error/failures.dart';
 import '../../../../../../../core/network/network_connection_checker.dart';
 import '../../../../../../../core/presentation/manager/preference_cubit/preference_cubit.dart';
 import '../../../../../core/constants/assets/assets_images.dart';
+import '../../../data/models/products/result.dart';
 import '../../../data/repos/products_repo.dart';
 import 'products_state.dart';
 
@@ -17,6 +18,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   final productsImageSliderList = [AssetsImages.add, AssetsImages.cmen];
   int selectedSliderImage = 0;
   Products? products;
+  Result? product;
   ProductsCubit({
     required this.productsRepo,
     required this.preferenceCubit,
@@ -54,6 +56,35 @@ class ProductsCubit extends Cubit<ProductsState> {
   sliderOnChange(int index) {
     selectedSliderImage = index;
     emit(ProductImageSliderChanged(index: index));
+  }
+
+  Future<void> getProductById({required String productId}) async {
+    emit(ProductsLoading());
+    var result = await _getProductById(productId: productId);
+
+    result.fold(
+      (failure) => emit(ProductsFailure(failure: failure)),
+      (product) async {
+        this.product = product;
+        emit(ProductsSuccessState(result: product));
+      },
+    );
+  }
+
+  Future<Either<Failure, Result>> _getProductById(
+      {required String productId}) async {
+    if (await networkConnectionChecker.isConnected) {
+      try {
+        var result = await productsRepo.getProductById(
+            productId: productId, token: preferenceCubit.userData!.accessToken);
+
+        return Right(result);
+      } on ServerException {
+        return Left(ServerFailure());
+      }
+    } else {
+      return Left(OfflineFailure());
+    }
   }
 }
 

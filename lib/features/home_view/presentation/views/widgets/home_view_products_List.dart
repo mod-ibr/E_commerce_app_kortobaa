@@ -24,7 +24,7 @@ class ProductsListHomeView extends StatelessWidget {
           return const LoadingWidget();
         }
         if (state is ProductsSuccessState) {
-          successProducts(products: state.products, context: context);
+          successProducts(products: state.products!, context: context);
         } else if (state is ProductsFailure) {
           String message = mapFailureToMessage(state.failure, context);
           return InlineErrorWidgetCustom(message: message);

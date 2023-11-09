@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/features/home_view/data/models/products/products.dart';
 
 import '../../../../../core/error/failures.dart';
+import '../../../data/models/products/result.dart';
 
 sealed class ProductsState {}
 
@@ -15,9 +16,12 @@ final class ProductImageSliderChanged extends ProductsState {
 }
 
 final class ProductsSuccessState extends ProductsState {
-  final Products products;
-
-  ProductsSuccessState({required this.products});
+  final Products? products;
+  final Result? result;
+  ProductsSuccessState({
+    this.products,
+    this.result,
+  });
 }
 
 final class ProductsFailure extends ProductsState {
