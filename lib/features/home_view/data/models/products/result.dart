@@ -8,16 +8,19 @@ class Result {
   String? description;
   String? rate;
   Category? category;
+  bool? isAddedToFavorite;
+  bool? isAddedToCart;
 
-  Result({
-    this.id,
-    this.name,
-    this.imageLink,
-    this.price,
-    this.description,
-    this.rate,
-    this.category,
-  });
+  Result(
+      {this.id,
+      this.name,
+      this.imageLink,
+      this.price,
+      this.description,
+      this.rate,
+      this.category,
+      this.isAddedToFavorite,
+      this.isAddedToCart});
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
         id: json['id'] as int?,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/localization/l10n.dart';
+import '../../../../../../core/localization/l10n.dart';
 
 class SectionTitleHomeView extends StatelessWidget {
   final String title;

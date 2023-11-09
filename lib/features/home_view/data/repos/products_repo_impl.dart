@@ -32,7 +32,7 @@ class ProductsRepoImpl extends ProductsRepo {
 
   @override
   Future<Result> getProductById(
-      {required String productId, required String token}) async {
+      {required int productId, required String token}) async {
     var response = await apiServices.get(
         endPoint: "/api/v1/products/$productId/", token: token);
 
@@ -40,7 +40,7 @@ class ProductsRepoImpl extends ProductsRepo {
     log("Response from getProductById : $decodedJson");
 
     if (response.statusCode == 200) {
-      Result result = Result.fromJson(decodedJson as Map<String, dynamic>);
+      Result result = Result.fromJson(decodedJson[0] as Map<String, dynamic>);
 
       return result;
     } else {

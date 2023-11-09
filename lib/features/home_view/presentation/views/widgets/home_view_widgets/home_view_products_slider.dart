@@ -1,8 +1,9 @@
 import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_slider_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'home_view_slider_images.dart';
 
 class ProductsSliderHomeView extends StatefulWidget {
   final double height;

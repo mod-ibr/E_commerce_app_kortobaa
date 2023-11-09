@@ -4,5 +4,5 @@ import '../models/products/result.dart';
 abstract class ProductsRepo {
   Future<Products> getProducts({required String token});
   Future<Result> getProductById(
-      {required String token, required String productId});
+      {required String token, required int productId});
 }

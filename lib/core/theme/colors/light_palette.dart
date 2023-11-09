@@ -12,4 +12,5 @@ class LightPalette {
   static Color blue = const Color(0xff0000CE);
   static Color offWhite = const Color(0xffFFFFFF);
   static Color gray = const Color(0xffD4D4D4);
+  static Color yellowGold = const Color(0xFFFFE621);
 }

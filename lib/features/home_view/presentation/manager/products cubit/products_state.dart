@@ -29,3 +29,6 @@ final class ProductsFailure extends ProductsState {
 
   ProductsFailure({required this.failure});
 }
+
+final class AmountChangedState extends ProductsState {}
+

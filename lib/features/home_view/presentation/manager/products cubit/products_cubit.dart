@@ -19,6 +19,8 @@ class ProductsCubit extends Cubit<ProductsState> {
   int selectedSliderImage = 0;
   Products? products;
   Result? product;
+  int amount = 1;
+
   ProductsCubit({
     required this.productsRepo,
     required this.preferenceCubit,
@@ -58,7 +60,7 @@ class ProductsCubit extends Cubit<ProductsState> {
     emit(ProductImageSliderChanged(index: index));
   }
 
-  Future<void> getProductById({required String productId}) async {
+  Future<void> getProductById({required int productId}) async {
     emit(ProductsLoading());
     var result = await _getProductById(productId: productId);
 
@@ -72,7 +74,7 @@ class ProductsCubit extends Cubit<ProductsState> {
   }
 
   Future<Either<Failure, Result>> _getProductById(
-      {required String productId}) async {
+      {required int productId}) async {
     if (await networkConnectionChecker.isConnected) {
       try {
         var result = await productsRepo.getProductById(
@@ -84,6 +86,18 @@ class ProductsCubit extends Cubit<ProductsState> {
       }
     } else {
       return Left(OfflineFailure());
+    }
+  }
+
+  void incrementAAmount() {
+    amount++;
+    emit(AmountChangedState());
+  }
+
+  void decrementAAmount() {
+    if (amount > 1) {
+      amount--;
+      emit(AmountChangedState());
     }
   }
 }

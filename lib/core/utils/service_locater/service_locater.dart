@@ -68,6 +68,7 @@ Future<void> setupServiceLocater() async {
   sl.registerFactory<CartCubit>(
     () => CartCubit(cartRepo: sl()),
   );
+
   // Repository
   sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: sl()));
   sl.registerLazySingleton<CategoriesRepo>(

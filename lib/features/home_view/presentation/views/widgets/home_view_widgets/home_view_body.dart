@@ -1,13 +1,14 @@
 import 'dart:developer';
-
 import 'package:e_commerce_app/core/localization/l10n.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_categories_list.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_products_list.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/home_view_section_title.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
-import '../../manager/products cubit/products_cubit.dart';
+
+import '../../../../../categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
+import '../../../manager/products cubit/products_cubit.dart';
+import 'home_view_categories_list.dart';
+import 'home_view_products_list.dart';
+import 'home_view_section_title.dart';
+
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -42,6 +43,9 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const ProductsListHomeView(),
+          SizedBox(
+            height: 32.sp,
+          )
         ],
       ),
     );
