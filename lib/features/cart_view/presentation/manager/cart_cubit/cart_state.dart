@@ -4,6 +4,7 @@ import '../../../data/models/cart/product.dart';
 sealed class CartState {}
 
 final class CartInitialSate extends CartState {}
+final class CartLoadingSate extends CartState {}
 
 final class CartSuccessState extends CartState {
   final List<Product> products;

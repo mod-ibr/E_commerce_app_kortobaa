@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/features/cart_view/data/models/cart/product.dart';
 import 'package:e_commerce_app/features/cart_view/data/repos/cart_repo.dart';
+import '../../../home_view/data/models/products/result.dart';
 import '../cart_locale_services.dart';
 
 class CartRepoImpl extends CartRepo {
@@ -11,12 +11,12 @@ class CartRepoImpl extends CartRepo {
   }
 
   @override
-  Future<void> addProductToCart({required Product product}) async {
+  Future<void> addProductToCart({required Result product}) async {
     await CartLocaleServices.instance.addProductToCart(product: product);
   }
 
   @override
-  Future<List<Product>> getAllProductsFromCart() async {
+  Future<List<Result>> getAllProductsFromCart() async {
     return await CartLocaleServices.instance.getAllProductsFromCart();
   }
 
@@ -26,7 +26,7 @@ class CartRepoImpl extends CartRepo {
   }
 
   @override
-  Future<void> updateProductInCart({required Product product}) async {
+  Future<void> updateProductInCart({required Result product}) async {
     await CartLocaleServices.instance.updateProductInCart(product: product);
   }
 

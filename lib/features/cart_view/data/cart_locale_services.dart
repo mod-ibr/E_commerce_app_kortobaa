@@ -1,8 +1,7 @@
 import 'package:e_commerce_app/core/constants/app_locale_constants.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
-import 'models/cart/product.dart';
+import '../../home_view/data/models/products/result.dart';
 
 class CartLocaleServices {
   static final CartLocaleServices instance = CartLocaleServices._init();
@@ -36,20 +35,20 @@ create table ${AppLocaleConstants.cartTableName} (
 ''');
   }
 
-  Future<void> addProductToCart({required Product product}) async {
+  Future<void> addProductToCart({required Result product}) async {
     final db = await database;
     db.insert(AppLocaleConstants.cartTableName, product.toJson());
   }
 
-  Future<List<Product>> getAllProductsFromCart() async {
+  Future<List<Result>> getAllProductsFromCart() async {
     final db = await instance.database;
 
     final result = await db.query(AppLocaleConstants.cartTableName);
 
-    return result.map((json) => Product.fromJson(json)).toList();
+    return result.map((json) => Result.fromJson(json)).toList();
   }
 
-  Future<void> updateProductInCart({required Product product}) async {
+  Future<void> updateProductInCart({required Result product}) async {
     final db = await instance.database;
     db.update(
       AppLocaleConstants.cartTableName,

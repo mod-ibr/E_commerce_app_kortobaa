@@ -2,8 +2,7 @@ import 'dart:developer';
 import 'package:e_commerce_app/features/cart_view/data/repos/cart_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../data/models/cart/product.dart';
+import '../../../../home_view/data/models/products/result.dart';
 import 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
@@ -17,7 +16,7 @@ class CartCubit extends Cubit<CartState> {
     cartRepo.initDb();
   }
 
-  Future<void> addProductToCart({required Product product}) async {
+  Future<void> addProductToCart({required Result product}) async {
     try {
       cartRepo.addProductToCart(product: product);
     } catch (e) {
@@ -33,7 +32,7 @@ class CartCubit extends Cubit<CartState> {
     }
   }
 
-  Future<void> updateProductInCart({required Product product}) async {
+  Future<void> updateProductInCart({required Result product}) async {
     try {
       await cartRepo.updateProductInCart(product: product);
     } catch (e) {
