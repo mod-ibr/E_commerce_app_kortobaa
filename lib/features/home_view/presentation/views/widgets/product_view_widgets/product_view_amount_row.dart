@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'product_view_price_text.dart';
+
 class AmountRowProductView extends StatelessWidget {
-  const AmountRowProductView({super.key});
+  final String price;
+  const AmountRowProductView({super.key, required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -13,56 +16,70 @@ class AmountRowProductView extends StatelessWidget {
     final theme = Theme.of(context);
     return Row(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Ink(
-              decoration: ShapeDecoration(
-                color: theme.colorScheme.secondary,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadiusDirectional.only(
-                    topStart: Radius.circular(8),
-                    bottomStart: Radius.circular(8),
-                  ),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              iconButtonWidget(
+                  context: context,
+                  iconData: Icons.add,
+                  onPressed: productsCubitProvider.incrementAAmount),
+              Expanded(
+                child: BlocBuilder<ProductsCubit, ProductsState>(
+                  builder: (context, state) {
+                    return Text(
+                      productsCubitProvider.amount.toString(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 16.sp, fontWeight: FontWeight.w600),
+                    );
+                  },
                 ),
               ),
-              child: IconButton(
-                icon: const Icon(Icons.add),
-                color: theme.colorScheme.tertiary,
-                onPressed: () => productsCubitProvider.incrementAAmount(),
-              ),
-            ),
-            Expanded(
-              child: BlocBuilder<ProductsCubit, ProductsState>(
-                builder: (context, state) {
-                  return Text(
-                    productsCubitProvider.amount.toString(),
-                    textAlign: TextAlign.center,
-                    style:
-                        TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600),
-                  );
-                },
-              ),
-            ),
-            Ink(
-              decoration: ShapeDecoration(
-                color: theme.colorScheme.secondary,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadiusDirectional.only(
-                    topEnd: Radius.circular(8),
-                    bottomEnd: Radius.circular(8),
-                  ),
-                ),
-              ),
-              child: IconButton(
-                icon: const Icon(Icons.remove),
-                color: theme.colorScheme.tertiary,
-                onPressed: () => productsCubitProvider.decrementAAmount(),
-              ),
-            ),
-          ],
+              iconButtonWidget(
+                  context: context,
+                  iconData: Icons.remove,
+                  onPressed: productsCubitProvider.decrementAAmount,
+                  reversed: true),
+            ],
+          ),
         ),
+        Expanded(
+          child: Container(
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(vertical: 12.sp, horizontal: 12.sp),
+            color: theme.colorScheme.tertiary,
+            child: PriceTextProductView(price: price, isColored: true),
+          ),
+        )
       ],
+    );
+  }
+
+  Widget iconButtonWidget(
+      {required BuildContext context,
+      required IconData iconData,
+      required Function onPressed,
+      bool reversed = false}) {
+    final theme = Theme.of(context);
+
+    return Ink(
+      decoration: ShapeDecoration(
+        color: theme.colorScheme.secondary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadiusDirectional.only(
+            topStart: reversed ? Radius.zero : const Radius.circular(8),
+            bottomStart: reversed ? Radius.zero : const Radius.circular(8),
+            bottomEnd: !reversed ? Radius.zero : const Radius.circular(8),
+            topEnd: !reversed ? Radius.zero : const Radius.circular(8),
+          ),
+        ),
+      ),
+      child: IconButton(
+        icon: Icon(iconData),
+        color: theme.colorScheme.tertiary,
+        onPressed: () => onPressed(),
+      ),
     );
   }
 }
