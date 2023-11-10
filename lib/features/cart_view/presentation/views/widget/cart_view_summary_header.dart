@@ -14,10 +14,10 @@ class SummaryHeaderCartView extends StatelessWidget {
     final locale = getL10n(context);
 
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 13.sp, horizontal: 9.sp),
+      padding: EdgeInsets.symmetric(vertical: 16.sp, horizontal: 9.sp),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(
-            Radius.circular(12.sp),
+            Radius.circular(8.sp),
           ),
           color: theme.colorScheme.tertiary),
       child: Row(

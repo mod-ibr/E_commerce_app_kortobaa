@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../../../core/constants/app_locale_constants.dart';
@@ -37,8 +39,13 @@ create table ${AppLocaleConstants.favoriteTableName} (
 
   Future<void> addProductToFavorite({required Favorite favorite}) async {
     final db = await database;
-    db.insert(AppLocaleConstants.favoriteTableName,
-        favorite.toJson().remove('category'));
+    Map<String, dynamic> value = favorite.toJson();
+    value.removeWhere((key, value) {
+      return key == "category";
+    });
+    log("All Value: value");
+    db.insert(AppLocaleConstants.favoriteTableName, value,
+        conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<List<Favorite>> getAllFavorites() async {
@@ -51,9 +58,14 @@ create table ${AppLocaleConstants.favoriteTableName} (
 
   Future<void> updateProductInFavorites({required Favorite favorite}) async {
     final db = await instance.database;
+    Map<String, dynamic> value = favorite.toJson();
+    value.removeWhere((key, value) {
+      return key == "category";
+    });
+    log("All Value: $value");
     db.update(
       AppLocaleConstants.favoriteTableName,
-      favorite.toJson().remove('category'),
+      value,
       where: '${AppLocaleConstants.productId} = ?',
       whereArgs: [favorite.id],
     );

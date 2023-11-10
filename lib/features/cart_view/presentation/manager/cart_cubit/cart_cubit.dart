@@ -28,7 +28,7 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> getAllProductsFromCart() async {
     emit(CartLoadingSate());
-    try {
+    // try {
       await cartRepo.getAllProductsFromCart().then((value) {
         allProductsFromCart = value;
         log("All Product Retrieved Successfully with length : ${value.length}");
@@ -37,10 +37,10 @@ class CartCubit extends Cubit<CartState> {
         }
         emit(CartSuccessState(products: value));
       });
-    } catch (e) {
-      log("ERROR in getAllProductsFromCart: ${e.toString()}");
-      emit(CartFailure());
-    }
+    // } catch (e) {
+    //   log("ERROR in getAllProductsFromCart: ${e.toString()}");
+    //   emit(CartFailure());
+    // }
   }
 
   Future<void> updateProductInCart({required Result product}) async {

@@ -47,7 +47,7 @@ class CartViewBody extends StatelessWidget {
       required BuildContext context}) {
     return Padding(
         padding: EdgeInsetsDirectional.all(16.sp),
-        child: Column(
+        child: const Column(
           children: [SummaryHeaderCartView()],
         ));
   }

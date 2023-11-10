@@ -8,8 +8,8 @@ class Result {
   String? description;
   String? rate;
   Category? category;
-  bool? isAddedToFavorite;
-  bool? isAddedToCart;
+  int? isAddedToFavorite;
+  int? isAddedToCart;
   int? amount;
 
   Result(
@@ -34,12 +34,11 @@ class Result {
         category: json['category'] == null
             ? null
             : Category.fromJson(json['category'] as Map<String, dynamic>),
-        isAddedToCart: json['isAddedToCart'] == null
-            ? false
-            : json['isAddedToCart'] as bool?,
+        isAddedToCart:
+            json['isAddedToCart'] == null ? 0 : json['isAddedToCart'] as int?,
         isAddedToFavorite: json['isAddedToFavorite'] == null
-            ? false
-            : json['isAddedToFavorite'] as bool?,
+            ? 0
+            : json['isAddedToFavorite'] as int?,
         amount: json['amount'] == null ? 1 : json['amount'] as int?,
       );
 
@@ -50,9 +49,9 @@ class Result {
         'price': price,
         'description': description,
         'rate': rate,
-        'isAddedToCart': isAddedToCart ?? false,
-        'isAddedToFavorite': isAddedToFavorite ?? false,
         'amount': amount ?? 1,
+        'isAddedToCart': isAddedToCart ?? 0,
+        'isAddedToFavorite': isAddedToFavorite ?? 0,
         'category': category?.toJson(),
       };
 }

@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
 import 'package:e_commerce_app/features/home_view/presentation/views/widgets/product_view_widgets/product_view_amount_row.dart';
 import 'package:e_commerce_app/features/home_view/presentation/views/widgets/product_view_widgets/product_view_expansion_text.dart';
 import 'package:flutter/material.dart';
@@ -61,6 +62,7 @@ class ProductViewBody extends StatelessWidget {
               padding: EdgeInsets.only(top: 12.sp),
               child: BlocBuilder<CartCubit, CartState>(
                 builder: (context, state) {
+                  product.amount = getProductsCubit(context).amount;
                   return ElevatedBttnCustom(
                     title: locale.addToCart,
                     onTap: () => getCartCubit(context)

@@ -8,5 +8,7 @@ class AppLocaleConstants {
   static const String productPrice = 'price';
   static const String productDescription = 'description';
   static const String productRate = 'rate';
-  static const String amount = 'numberOfProducts';
+  static const String amount = 'amount';
+  static const String isAddedToCart = 'isAddedToCart';
+  static const String isAddedToFavorite = 'isAddedToFavorite';
 }
