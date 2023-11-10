@@ -27,6 +27,7 @@
   "warning": "Warning",
   "accountCreatedSuccessfully": "Congratulations, account created successfully, please log in again",
   "serverFailureMessage": "Please try again later,Error server...",
+  "localeStorageFailureMessage":"Please try again later,Error while processing data...",
   "offlineFailureMessage": "You are offline, Please Check your Internet Connection",
   "wrongAccountFailureMessage": "No active account found with the given credentials",
   "existAccountFailureMessage": "A user with that username already exists.",
@@ -46,6 +47,14 @@
   "egp": "egp",
   "addedToFavorites": "Added to favorites",
   "shareTheProduct": "Share the product",
-  "theDescription": "the description",
-  "addToCart": "Add to cart"
+  "theDescription": "Description",
+  "addToCart": "Add to cart",
+  "shoppingBasket": "Cart",
+  "total": "Total",
+  "item": "Item",
+  "haveCoupon": "Do you have a discount coupon ?",
+  "apply": "Apply",
+  "enterCoupon": "Enter the coupon number",
+  "taxes": "Taxes",
+  "completePurchase": "Complete your purchase"
 }
