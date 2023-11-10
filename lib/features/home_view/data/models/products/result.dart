@@ -10,6 +10,7 @@ class Result {
   Category? category;
   bool? isAddedToFavorite;
   bool? isAddedToCart;
+  int? amount;
 
   Result(
       {this.id,
@@ -20,7 +21,8 @@ class Result {
       this.rate,
       this.category,
       this.isAddedToFavorite,
-      this.isAddedToCart});
+      this.isAddedToCart,
+      this.amount});
 
   factory Result.fromJson(Map<String, dynamic> json) => Result(
         id: json['id'] as int?,
@@ -32,6 +34,13 @@ class Result {
         category: json['category'] == null
             ? null
             : Category.fromJson(json['category'] as Map<String, dynamic>),
+        isAddedToCart: json['isAddedToCart'] == null
+            ? false
+            : json['isAddedToCart'] as bool?,
+        isAddedToFavorite: json['isAddedToFavorite'] == null
+            ? false
+            : json['isAddedToFavorite'] as bool?,
+        amount: json['amount'] == null ? 1 : json['amount'] as int?,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,6 +50,9 @@ class Result {
         'price': price,
         'description': description,
         'rate': rate,
+        'isAddedToCart': isAddedToCart ?? false,
+        'isAddedToFavorite': isAddedToFavorite ?? false,
+        'amount': amount ?? 1,
         'category': category?.toJson(),
       };
 }

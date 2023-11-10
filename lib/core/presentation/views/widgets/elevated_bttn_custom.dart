@@ -55,8 +55,12 @@ class ElevatedBttnCustom extends StatelessWidget {
                 : Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(iconData, color: theme.colorScheme.tertiary),
-                      SizedBox(width: 12.sp),
+                      (iconData != null)
+                          ? Icon(iconData, color: theme.colorScheme.tertiary)
+                          : const SizedBox.shrink(),
+                      (iconData != null)
+                          ? SizedBox(width: 12.sp)
+                          : const SizedBox.shrink(),
                       Text(
                         title,
                         style: theme.textTheme.titleLarge?.copyWith(

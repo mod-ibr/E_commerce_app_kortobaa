@@ -1,4 +1,3 @@
-import 'category.dart';
 
 class Favorite {
   int? id;
@@ -7,7 +6,6 @@ class Favorite {
   String? price;
   String? description;
   String? rate;
-  Category? category;
 
   Favorite({
     this.id,
@@ -16,7 +14,6 @@ class Favorite {
     this.price,
     this.description,
     this.rate,
-    this.category,
   });
 
   factory Favorite.fromJson(Map<String, dynamic> json) => Favorite(
@@ -26,9 +23,7 @@ class Favorite {
         price: json['price'] as String?,
         description: json['description'] as String?,
         rate: json['rate'] as String?,
-        category: json['category'] == null
-            ? null
-            : Category.fromJson(json['category'] as Map<String, dynamic>),
+       
       );
 
   Map<String, dynamic> toJson() => {
@@ -38,6 +33,5 @@ class Favorite {
         'price': price,
         'description': description,
         'rate': rate,
-        'category': category?.toJson(),
       };
 }

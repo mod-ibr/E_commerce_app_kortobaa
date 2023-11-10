@@ -18,7 +18,9 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> addProductToCart({required Result product}) async {
     try {
-      cartRepo.addProductToCart(product: product);
+      cartRepo
+          .addProductToCart(product: product)
+          .then((value) => log("Product Added Successfully"));
     } catch (e) {
       log("ERROR in addProductToCart: ${e.toString()}");
     }
@@ -26,7 +28,8 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> getAllProductsFromCart() async {
     try {
-      await cartRepo.getAllProductsFromCart();
+      await cartRepo.getAllProductsFromCart().then((value) => log(
+          "All Product Retrieved Successfully with length : ${value.length}"));
     } catch (e) {
       log("ERROR in getAllProductsFromCart: ${e.toString()}");
     }
@@ -34,7 +37,9 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> updateProductInCart({required Result product}) async {
     try {
-      await cartRepo.updateProductInCart(product: product);
+      await cartRepo
+          .updateProductInCart(product: product)
+          .then((value) => log("Product Updated Successfully"));
     } catch (e) {
       log("ERROR in updateProductInCart: ${e.toString()}");
     }
@@ -42,7 +47,9 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> removeProductFromCart({required int productId}) async {
     try {
-      await cartRepo.removeProductFromCart(productId: productId);
+      await cartRepo
+          .removeProductFromCart(productId: productId)
+          .then((value) => log("Product Removed Successfully"));
     } catch (e) {
       log("ERROR in removeProductFromCart: ${e.toString()}");
     }
@@ -50,7 +57,9 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> cleanCart() async {
     try {
-      await cartRepo.cleanCart();
+      await cartRepo
+          .cleanCart()
+          .then((value) => log("All Products Removed Successfully"));
     } catch (e) {
       log("ERROR in cleanCart: ${e.toString()}");
     }

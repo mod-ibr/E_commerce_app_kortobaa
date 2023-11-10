@@ -26,21 +26,19 @@ class FavoriteLocaleServices {
     await db.execute('''
 create table ${AppLocaleConstants.favoriteTableName} ( 
   ${AppLocaleConstants.id} integer primary key autoincrement, 
-  ${AppLocaleConstants.productId} integer not null,
-  ${AppLocaleConstants.productName} text not null,
-  ${AppLocaleConstants.productImageLink} text not null,
-  ${AppLocaleConstants.productPrice} text not null,
-  ${AppLocaleConstants.productDescription} text not null,
-  ${AppLocaleConstants.productRate} text not null,
-  ${AppLocaleConstants.productCategoryId} integer not null,
-  ${AppLocaleConstants.productCategoryName} text not null,
-  ${AppLocaleConstants.productCategoryImageLink} text not null,)
+  ${AppLocaleConstants.productId} integer,
+  ${AppLocaleConstants.productName} text,
+  ${AppLocaleConstants.productImageLink} text,
+  ${AppLocaleConstants.productPrice} text,
+  ${AppLocaleConstants.productDescription} text,
+  ${AppLocaleConstants.productRate} text,)
 ''');
   }
 
   Future<void> addProductToFavorite({required Favorite favorite}) async {
     final db = await database;
-    db.insert(AppLocaleConstants.favoriteTableName, favorite.toJson());
+    db.insert(AppLocaleConstants.favoriteTableName,
+        favorite.toJson().remove('category'));
   }
 
   Future<List<Favorite>> getAllFavorites() async {
@@ -55,7 +53,7 @@ create table ${AppLocaleConstants.favoriteTableName} (
     final db = await instance.database;
     db.update(
       AppLocaleConstants.favoriteTableName,
-      favorite.toJson(),
+      favorite.toJson().remove('category'),
       where: '${AppLocaleConstants.productId} = ?',
       whereArgs: [favorite.id],
     );

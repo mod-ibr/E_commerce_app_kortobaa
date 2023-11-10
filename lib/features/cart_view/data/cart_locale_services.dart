@@ -26,18 +26,20 @@ class CartLocaleServices {
     await db.execute('''
 create table ${AppLocaleConstants.cartTableName} ( 
   ${AppLocaleConstants.id} integer primary key autoincrement, 
-  ${AppLocaleConstants.productId} integer not null,
-  ${AppLocaleConstants.productName} text not null,
-  ${AppLocaleConstants.productImageLink} text not null,
-  ${AppLocaleConstants.productPrice} text not null,
-  ${AppLocaleConstants.productDescription} text not null,
-  ${AppLocaleConstants.numberOfProducts} text not null,)
+  ${AppLocaleConstants.productId} integer,
+  ${AppLocaleConstants.productName} text,
+  ${AppLocaleConstants.productImageLink} text,
+  ${AppLocaleConstants.productPrice} text,
+  ${AppLocaleConstants.productDescription} text,
+  ${AppLocaleConstants.productRate} text,
+  ${AppLocaleConstants.amount} text)
 ''');
   }
 
   Future<void> addProductToCart({required Result product}) async {
     final db = await database;
-    db.insert(AppLocaleConstants.cartTableName, product.toJson());
+    db.insert(
+        AppLocaleConstants.cartTableName, product.toJson().remove('category'));
   }
 
   Future<List<Result>> getAllProductsFromCart() async {
@@ -52,7 +54,7 @@ create table ${AppLocaleConstants.cartTableName} (
     final db = await instance.database;
     db.update(
       AppLocaleConstants.cartTableName,
-      product.toJson(),
+      product.toJson().remove('category'),
       where: '${AppLocaleConstants.productId} = ?',
       whereArgs: [product.id],
     );
