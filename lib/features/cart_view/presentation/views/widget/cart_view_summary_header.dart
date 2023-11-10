@@ -1,8 +1,7 @@
-import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/localization/l10n.dart';
+import '../../manager/cart_cubit/cart_cubit.dart';
 
 class SummaryHeaderCartView extends StatelessWidget {
   const SummaryHeaderCartView({super.key});

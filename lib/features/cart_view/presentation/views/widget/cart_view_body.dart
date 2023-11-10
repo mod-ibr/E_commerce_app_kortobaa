@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_products_list.dart';
 import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_summary_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,10 +46,19 @@ class CartViewBody extends StatelessWidget {
   Widget successProducts(
       {required List<Result>? allProductsFromCart,
       required BuildContext context}) {
+    // TODO : Check if the All products Length is == null or Empty
     return Padding(
-        padding: EdgeInsetsDirectional.all(16.sp),
-        child: const Column(
-          children: [SummaryHeaderCartView()],
-        ));
+      padding: EdgeInsetsDirectional.symmetric(horizontal: 16.sp),
+      child: Flex(
+        direction: Axis.vertical,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 16.sp),
+            child: const SummaryHeaderCartView(),
+          ),
+          const Expanded(child: ProductsListCartView()),
+        ],
+      ),
+    );
   }
 }

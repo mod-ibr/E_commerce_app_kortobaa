@@ -1,6 +1,5 @@
 import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
-import 'package:e_commerce_app/features/home_view/presentation/views/widgets/product_view_widgets/product_view_amount_row.dart';
 import 'package:e_commerce_app/features/home_view/presentation/views/widgets/product_view_widgets/product_view_expansion_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +9,7 @@ import '../../../../../../core/localization/l10n.dart';
 import '../../../../../../core/presentation/views/widgets/elevated_bttn_custom.dart';
 import '../../../../../cart_view/presentation/manager/cart_cubit/cart_state.dart';
 import '../../../../data/models/products/result.dart';
+import 'product_view_amount_row.dart';
 import 'product_view_price_text.dart';
 import 'product_view_rate_text.dart';
 
