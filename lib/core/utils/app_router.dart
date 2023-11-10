@@ -33,7 +33,7 @@ class AppRouter {
             builder: (context) => const RegisterViewAuth());
       //Home
       case kHomeView:
-        return MaterialPageRoute(builder: (context) => MainView());
+        return MaterialPageRoute(builder: (context) => const MainView());
       default:
         return MaterialPageRoute(builder: (context) => const ErrorView());
     }

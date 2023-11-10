@@ -1,6 +1,6 @@
 import 'category.dart';
 
-class Result {
+class Favorite {
   int? id;
   String? name;
   String? imageLink;
@@ -8,21 +8,18 @@ class Result {
   String? description;
   String? rate;
   Category? category;
-  bool? isAddedToFavorite;
-  bool? isAddedToCart;
 
-  Result(
-      {this.id,
-      this.name,
-      this.imageLink,
-      this.price,
-      this.description,
-      this.rate,
-      this.category,
-      this.isAddedToFavorite,
-      this.isAddedToCart});
+  Favorite({
+    this.id,
+    this.name,
+    this.imageLink,
+    this.price,
+    this.description,
+    this.rate,
+    this.category,
+  });
 
-  factory Result.fromJson(Map<String, dynamic> json) => Result(
+  factory Favorite.fromJson(Map<String, dynamic> json) => Favorite(
         id: json['id'] as int?,
         name: json['name'] as String?,
         imageLink: json['image_link'] as String?,

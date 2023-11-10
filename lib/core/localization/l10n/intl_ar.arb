@@ -41,7 +41,11 @@
   "searchFor": "عم تبحث ؟",
   "recentlyAdded": "وصل حديثا",
   "seeAll": "عرض الكل",
-  "mostPopular" : "الأكثر شعبية",
-  "noTitle":"لا يوجد عنوان",
-  "egp":"ج.م"
+  "mostPopular": "الأكثر شعبية",
+  "noTitle": "لا يوجد عنوان",
+  "egp": "ج.م",
+  "addedToFavorites": "مضاف للمفضلة",
+  "shareTheProduct": "مشاركة المنتج",
+  "theDescription": "الوصف",
+  "addToCart": "أضف للسلة"
 }

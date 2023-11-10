@@ -2,14 +2,15 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/localization/l10n.dart';
-import '../../../../../core/presentation/views/widgets/inline_error_widget.dart';
-import '../../../../../core/presentation/views/widgets/loading_widget.dart';
-import '../../../../../core/utils/functions/map_failure_to_message.dart';
-import '../../../../categories_view/data/models/categories/categories.dart';
-import '../../../../categories_view/data/models/categories/result.dart';
-import '../../../../categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
-import '../../../../categories_view/presentation/manager/categories_cubit/categories_state.dart';
+
+import '../../../../../../core/localization/l10n.dart';
+import '../../../../../../core/presentation/views/widgets/inline_error_widget.dart';
+import '../../../../../../core/presentation/views/widgets/loading_widget.dart';
+import '../../../../../../core/utils/functions/map_failure_to_message.dart';
+import '../../../../../categories_view/data/models/categories/categories.dart';
+import '../../../../../categories_view/data/models/categories/result.dart';
+import '../../../../../categories_view/presentation/manager/categories_cubit/categories_cubit.dart';
+import '../../../../../categories_view/presentation/manager/categories_cubit/categories_state.dart';
 import 'home_view_category_circle_avatar.dart';
 
 class CategoriesListHomeView extends StatelessWidget {

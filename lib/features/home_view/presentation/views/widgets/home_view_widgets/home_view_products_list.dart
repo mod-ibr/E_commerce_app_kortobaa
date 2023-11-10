@@ -1,15 +1,17 @@
 import 'dart:developer';
+import 'package:e_commerce_app/core/presentation/manager/shopping_cubit/shopping_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/localization/l10n.dart';
-import '../../../../../core/presentation/views/widgets/inline_error_widget.dart';
-import '../../../../../core/presentation/views/widgets/loading_widget.dart';
-import '../../../../../core/utils/functions/map_failure_to_message.dart';
-import '../../../data/models/products/products.dart';
-import '../../../data/models/products/result.dart';
-import '../../manager/products cubit/products_cubit.dart';
-import '../../manager/products cubit/products_state.dart';
+
+import '../../../../../../core/localization/l10n.dart';
+import '../../../../../../core/presentation/views/widgets/inline_error_widget.dart';
+import '../../../../../../core/presentation/views/widgets/loading_widget.dart';
+import '../../../../../../core/utils/functions/map_failure_to_message.dart';
+import '../../../../data/models/products/products.dart';
+import '../../../../data/models/products/result.dart';
+import '../../../manager/products cubit/products_cubit.dart';
+import '../../../manager/products cubit/products_state.dart';
 import 'home_view_product_card.dart';
 
 class ProductsListHomeView extends StatelessWidget {
@@ -24,7 +26,7 @@ class ProductsListHomeView extends StatelessWidget {
           return const LoadingWidget();
         }
         if (state is ProductsSuccessState) {
-          successProducts(products: state.products, context: context);
+          successProducts(products: state.products!, context: context);
         } else if (state is ProductsFailure) {
           String message = mapFailureToMessage(state.failure, context);
           return InlineErrorWidgetCustom(message: message);
@@ -54,8 +56,14 @@ class ProductsListHomeView extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: allProducts.length,
         itemBuilder: (context, index) => GestureDetector(
-          onTap: () =>
-              log("Category of ${allProducts[index].name} was selected"),
+          onTap: () {
+            log("Product of ${allProducts[index].name} was selected");
+            if (allProducts[index].id != null) {
+              getProductsCubit(context)
+                  .getProductById(productId: allProducts[index].id!);
+              getShoppingCubit(context).showProductPage();
+            }
+          },
           child: ProductCardHomeView(
             product: allProducts[index],
           ),

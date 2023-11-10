@@ -41,7 +41,11 @@
   "searchFor": "What do you search for ?",
   "recentlyAdded": "Recently added",
   "seeAll": "See All",
-  "mostPopular" : "Most popular" ,
-  "noTitle":"No title",
-  "egp":"egp"
+  "mostPopular": "Most popular",
+  "noTitle": "No title",
+  "egp": "egp",
+  "addedToFavorites": "Added to favorites",
+  "shareTheProduct": "Share the product",
+  "theDescription": "the description",
+  "addToCart": "Add to cart"
 }

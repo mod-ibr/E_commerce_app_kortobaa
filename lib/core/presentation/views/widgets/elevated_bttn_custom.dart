@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ElevatedBttnCustom extends StatelessWidget {
   final String title;
@@ -8,6 +9,7 @@ class ElevatedBttnCustom extends StatelessWidget {
   final double? height;
   final double? width;
   final bool isLoading;
+  final IconData? iconData;
 
   const ElevatedBttnCustom({
     super.key,
@@ -18,6 +20,7 @@ class ElevatedBttnCustom extends StatelessWidget {
     this.height,
     this.width,
     this.isLoading = false,
+    this.iconData,
   });
 
   @override
@@ -49,11 +52,18 @@ class ElevatedBttnCustom extends StatelessWidget {
                       color: theme.colorScheme.tertiary,
                     ),
                   )
-                : Text(
-                    title,
-                    style: theme.textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: theme.colorScheme.tertiary),
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(iconData, color: theme.colorScheme.tertiary),
+                      SizedBox(width: 12.sp),
+                      Text(
+                        title,
+                        style: theme.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: theme.colorScheme.tertiary),
+                      ),
+                    ],
                   ),
           ),
         ),

@@ -5,7 +5,7 @@ import '../../../../features/cart_view/presentation/views/cart_view.dart';
 import '../../../../features/categories_view/presentation/views/categories_view.dart';
 import '../../../../features/favorite/presentation/views/favorite_view.dart';
 import '../../../../features/home_view/presentation/views/home_view.dart';
-import '../../../../features/products_view/presentation/views/products_view.dart';
+import '../../../../features/home_view/presentation/views/products_view.dart';
 import '../../../../features/profile_view/presentation/views/profile_view.dart';
 
 part 'shopping_state.dart';

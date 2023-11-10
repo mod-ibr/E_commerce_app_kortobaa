@@ -7,5 +7,5 @@ final kLightThemeData = ThemeData(
   fontFamily: kFontFamily,
   brightness: Brightness.light,
   colorScheme: kLightColorScheme,
-  scaffoldBackgroundColor: LightPalette.grayGainsboro,
+  scaffoldBackgroundColor: LightPalette.grayGainsBoro,
 );

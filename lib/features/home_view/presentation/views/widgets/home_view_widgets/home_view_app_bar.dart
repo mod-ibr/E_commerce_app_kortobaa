@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../../../core/localization/l10n.dart';
-import '../../manager/products cubit/products_cubit.dart';
-import '../../manager/products cubit/products_state.dart';
+import '../../../../../../core/localization/l10n.dart';
+import '../../../manager/products cubit/products_cubit.dart';
+import '../../../manager/products cubit/products_state.dart';
 import 'home_view_app_bar_header.dart';
 import 'home_view_blurred_image.dart';
 import 'home_view_products_slider.dart';
