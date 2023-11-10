@@ -1,5 +1,5 @@
 import '../../../../../core/error/failures.dart';
-import '../../../data/models/cart/product.dart';
+import '../../../../home_view/data/models/products/result.dart';
 
 sealed class CartState {}
 
@@ -7,7 +7,7 @@ final class CartInitialSate extends CartState {}
 final class CartLoadingSate extends CartState {}
 
 final class CartSuccessState extends CartState {
-  final List<Product> products;
+  final List<Result> products;
 
   CartSuccessState({required this.products});
 }
