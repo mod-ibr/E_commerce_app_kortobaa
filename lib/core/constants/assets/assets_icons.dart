@@ -14,4 +14,5 @@ abstract class AssetsIcons {
   static const String shield = "assets/icons/shield.svg";
   static const String warning = "assets/icons/warning.svg";
   static const String lock = "assets/icons/lock.svg";
+
 }

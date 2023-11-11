@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/localization/l10n.dart';
+import '../../../../core/presentation/views/widgets/drawer.dart';
 import '../../../../core/presentation/views/widgets/inline_error_widget.dart';
 import '../../../../core/presentation/views/widgets/loading_widget.dart';
 import '../../../../core/utils/functions/map_failure_to_message.dart';
@@ -48,6 +49,7 @@ class _ProductsViewState extends State<ProductsView> {
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
       appBar: AppBarProductView(product: product),
+      drawer: const DrawerCustom(),
       body: ProductViewBody(product: product),
     );
   }

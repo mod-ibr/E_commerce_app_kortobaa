@@ -4,6 +4,8 @@ import 'package:e_commerce_app/features/categories_view/presentation/views/widge
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../core/presentation/views/widgets/drawer.dart';
+
 class CategoriesView extends StatefulWidget {
   const CategoriesView({super.key});
 
@@ -19,6 +21,7 @@ class _CategoriesViewState extends State<CategoriesView> {
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
       appBar: CustomAppBar(title: locale.classifications),
+      drawer: const DrawerCustom(),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 15.sp),
         child: const CategoriesViewBody(),

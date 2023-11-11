@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import '../../../core/constants/app_locale_constants.dart';
@@ -26,21 +28,24 @@ class FavoriteLocaleServices {
     await db.execute('''
 create table ${AppLocaleConstants.favoriteTableName} ( 
   ${AppLocaleConstants.id} integer primary key autoincrement, 
-  ${AppLocaleConstants.productId} integer not null,
-  ${AppLocaleConstants.productName} text not null,
-  ${AppLocaleConstants.productImageLink} text not null,
-  ${AppLocaleConstants.productPrice} text not null,
-  ${AppLocaleConstants.productDescription} text not null,
-  ${AppLocaleConstants.productRate} text not null,
-  ${AppLocaleConstants.productCategoryId} integer not null,
-  ${AppLocaleConstants.productCategoryName} text not null,
-  ${AppLocaleConstants.productCategoryImageLink} text not null,)
+  ${AppLocaleConstants.productId} integer,
+  ${AppLocaleConstants.productName} text,
+  ${AppLocaleConstants.productImageLink} text,
+  ${AppLocaleConstants.productPrice} text,
+  ${AppLocaleConstants.productDescription} text,
+  ${AppLocaleConstants.productRate} text,)
 ''');
   }
 
   Future<void> addProductToFavorite({required Favorite favorite}) async {
     final db = await database;
-    db.insert(AppLocaleConstants.favoriteTableName, favorite.toJson());
+    Map<String, dynamic> value = favorite.toJson();
+    value.removeWhere((key, value) {
+      return key == "category";
+    });
+    log("All Value: value");
+    db.insert(AppLocaleConstants.favoriteTableName, value,
+        conflictAlgorithm: ConflictAlgorithm.replace);
   }
 
   Future<List<Favorite>> getAllFavorites() async {
@@ -53,9 +58,14 @@ create table ${AppLocaleConstants.favoriteTableName} (
 
   Future<void> updateProductInFavorites({required Favorite favorite}) async {
     final db = await instance.database;
+    Map<String, dynamic> value = favorite.toJson();
+    value.removeWhere((key, value) {
+      return key == "category";
+    });
+    log("All Value: $value");
     db.update(
       AppLocaleConstants.favoriteTableName,
-      favorite.toJson(),
+      value,
       where: '${AppLocaleConstants.productId} = ?',
       whereArgs: [favorite.id],
     );

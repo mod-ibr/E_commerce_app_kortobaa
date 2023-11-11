@@ -2,8 +2,8 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../manager/shopping_cubit/shopping_cubit.dart';
+import 'widgets/drawer.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -25,6 +25,7 @@ class _MainViewState extends State<MainView> {
         return Scaffold(
           backgroundColor: theme.colorScheme.surface,
           body: shoppingCubit.pages[shoppingCubit.bottomNavIndex],
+          drawer: const DrawerCustom(),
           floatingActionButton: Visibility(
             visible: !keyboardIsOpen,
             child: SizedBox(

@@ -50,19 +50,22 @@ class CategoriesListHomeView extends StatelessWidget {
       );
     }
     return SizedBox(
-      height: 80.sp,
+      height: 0.11.sh,
       child: ListView.separated(
         primary: false,
         shrinkWrap: true,
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemCount: allCategories.length,
+        itemCount: allCategories.length * 2,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () =>
               log("Category of ${allCategories[index].name} was selected"),
-          child: CategoryCircleAvatarHomeView(
-            imageLink: allCategories[index].imageLink,
-            label: allCategories[index].name,
+          child: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: CategoryCircleAvatarHomeView(
+              imageLink: allCategories[index % allCategories.length].imageLink,
+              label: allCategories[index % allCategories.length].name,
+            ),
           ),
         ),
         separatorBuilder: (context, index) => SizedBox(width: 8.sp),

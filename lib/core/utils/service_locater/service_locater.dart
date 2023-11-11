@@ -50,7 +50,7 @@ Future<void> setupServiceLocater() async {
       categoriesRepo: sl(),
       preferenceCubit: sl(),
       networkConnectionChecker: sl(),
-    )..getCategories(),
+    ),
   );
   // Home view Cubit
   sl.registerFactory<ProductsCubit>(
@@ -58,16 +58,14 @@ Future<void> setupServiceLocater() async {
       productsRepo: sl(),
       preferenceCubit: sl(),
       networkConnectionChecker: sl(),
-    )..getProducts(),
+    ),
   );
   // Favorite view Cubit
   sl.registerFactory<FavoriteCubit>(
     () => FavoriteCubit(favoriteRepo: sl()),
   );
   // Cart view Cubit
-  sl.registerFactory<CartCubit>(
-    () => CartCubit(cartRepo: sl()),
-  );
+  sl.registerFactory<CartCubit>(() => CartCubit(cartRepo: sl()));
 
   // Repository
   sl.registerLazySingleton<AuthRepo>(() => AuthRepoImpl(apiServices: sl()));

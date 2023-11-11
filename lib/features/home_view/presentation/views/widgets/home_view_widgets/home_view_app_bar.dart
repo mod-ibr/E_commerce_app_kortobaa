@@ -15,7 +15,7 @@ class AppBarHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final locale = getL10n(context);
-    final double height = 0.75.sw;
+    final double height = 0.45.sh;
     final productsCubitProvider = getProductsCubit(context);
     return BlocBuilder<ProductsCubit, ProductsState>(
       builder: (context, state) {
@@ -30,11 +30,13 @@ class AppBarHomeView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.only(bottom: 8.sp, top: 4.sp),
+                    padding: EdgeInsetsDirectional.only(top: 4.sp),
                     child: AppBarHeaderHomeView(title: locale.main),
                   ),
-                  const SearchFieldHomeView(),
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.sp),
+                    child: const SearchFieldHomeView(),
+                  ),
                   Expanded(child: ProductsSliderHomeView(height: height))
                 ],
               ),

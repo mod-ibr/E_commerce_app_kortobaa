@@ -1,14 +1,15 @@
-import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_cubit.dart';
-import 'package:e_commerce_app/features/home_view/presentation/manager/products%20cubit/products_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../../../../../core/presentation/views/widgets/custom_icon_button.dart';
+import '../../../manager/products cubit/products_cubit.dart';
+import '../../../manager/products cubit/products_state.dart';
 import 'product_view_price_text.dart';
 
 class AmountRowProductView extends StatelessWidget {
   final String price;
-  const AmountRowProductView({super.key, required this.price});
+  final Widget? endChild;
+  const AmountRowProductView({super.key, required this.price, this.endChild});
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +21,10 @@ class AmountRowProductView extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              iconButtonWidget(
-                  context: context,
+              IconButtonCustom(
                   iconData: Icons.add,
-                  onPressed: productsCubitProvider.incrementAAmount),
+                  onPressed: productsCubitProvider.incrementAAmount,
+                  isRounded: endChild != null ? null : false),
               Expanded(
                 child: BlocBuilder<ProductsCubit, ProductsState>(
                   builder: (context, state) {
@@ -36,11 +37,10 @@ class AmountRowProductView extends StatelessWidget {
                   },
                 ),
               ),
-              iconButtonWidget(
-                  context: context,
+              IconButtonCustom(
                   iconData: Icons.remove,
                   onPressed: productsCubitProvider.decrementAAmount,
-                  reversed: true),
+                  isRounded: endChild != null ? null : true),
             ],
           ),
         ),
@@ -51,35 +51,9 @@ class AmountRowProductView extends StatelessWidget {
             color: theme.colorScheme.tertiary,
             child: PriceTextProductView(price: price, isColored: true),
           ),
-        )
-      ],
-    );
-  }
-
-  Widget iconButtonWidget(
-      {required BuildContext context,
-      required IconData iconData,
-      required Function onPressed,
-      bool reversed = false}) {
-    final theme = Theme.of(context);
-
-    return Ink(
-      decoration: ShapeDecoration(
-        color: theme.colorScheme.secondary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusDirectional.only(
-            topStart: reversed ? Radius.zero : const Radius.circular(8),
-            bottomStart: reversed ? Radius.zero : const Radius.circular(8),
-            bottomEnd: !reversed ? Radius.zero : const Radius.circular(8),
-            topEnd: !reversed ? Radius.zero : const Radius.circular(8),
-          ),
         ),
-      ),
-      child: IconButton(
-        icon: Icon(iconData),
-        color: theme.colorScheme.tertiary,
-        onPressed: () => onPressed(),
-      ),
+        endChild ?? const SizedBox.shrink()
+      ],
     );
   }
 }

@@ -9,7 +9,6 @@ import 'home_view_categories_list.dart';
 import 'home_view_products_list.dart';
 import 'home_view_section_title.dart';
 
-
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
@@ -23,10 +22,13 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         children: [
           //* Categories
-          const CategoriesListHomeView(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 12.sp),
+            child: const CategoriesListHomeView(),
+          ),
           //* Recently Added
           Padding(
-            padding: EdgeInsetsDirectional.only(top: 32.sp, bottom: 8.sp),
+            padding: EdgeInsetsDirectional.only(top: 20.sp, bottom: 8.sp),
             child: SectionTitleHomeView(
               title: locale.recentlyAdded,
               seeAllFunction: () => log("See all ${locale.recentlyAdded}"),
