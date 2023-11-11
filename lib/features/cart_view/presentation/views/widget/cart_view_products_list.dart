@@ -11,21 +11,26 @@ class ProductsListCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     final cartCubitProvider = getCartCubit(context);
 
-    return ListView.separated(
+    return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemCount: cartCubitProvider.allProductsFromCart!.length,
       itemBuilder: (context, index) {
         return Column(
           children: [
-            ProductItemCartView(
-                product: cartCubitProvider.allProductsFromCart![index]),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.sp),
+              child: ProductItemCartView(
+                  product: cartCubitProvider.allProductsFromCart![index]),
+            ),
             (index + 1 == cartCubitProvider.allProductsFromCart!.length)
-                ? const CouponCardCartView()
+                ? Padding(
+                    padding: EdgeInsets.symmetric(vertical: 12.sp),
+                    child: const CouponCardCartView(),
+                  )
                 : const SizedBox.shrink()
           ],
         );
       },
-      separatorBuilder: (context, index) => SizedBox(height: 16.sp),
     );
   }
 }

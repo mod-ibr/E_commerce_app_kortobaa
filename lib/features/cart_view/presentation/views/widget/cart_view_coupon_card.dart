@@ -24,36 +24,34 @@ class _CouponCardCartViewState extends State<CouponCardCartView> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final locale = getL10n(context);
-    return Container(
-      child: Stack(
-        alignment: AlignmentDirectional.topStart,
-        children: [
-          SvgPicture.asset(
-            AssetsImages.coupon,
-            // height: 0.2.sw,
-            width: 1.sw,
-            fit: BoxFit.fill,
+    return Stack(
+      alignment: AlignmentDirectional.topStart,
+      children: [
+        SvgPicture.asset(
+          AssetsImages.coupon,
+          // height: 0.2.sw,
+          width: 1.sw,
+          fit: BoxFit.fill,
+        ),
+        Container(
+          margin: EdgeInsetsDirectional.symmetric(vertical: 12.sp),
+          width: 0.7.sw,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                locale.haveCoupon,
+                style: TextStyle(
+                    color: theme.colorScheme.tertiary,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w700),
+              ),
+              SizedBox(height: 20.sp),
+              enterCouponWidget()
+            ],
           ),
-          Container(
-            margin: EdgeInsetsDirectional.symmetric(vertical: 12.sp),
-            width: 0.7.sw,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(
-                  locale.haveCoupon,
-                  style: TextStyle(
-                      color: theme.colorScheme.tertiary,
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w700),
-                ),
-                SizedBox(height: 20.sp),
-                enterCouponWidget()
-              ],
-            ),
-          )
-        ],
-      ),
+        )
+      ],
     );
   }
 

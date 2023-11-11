@@ -14,7 +14,6 @@ class ProductItemCartView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      height: 0.22.sh,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.sp),
       ),

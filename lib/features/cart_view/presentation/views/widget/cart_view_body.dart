@@ -53,7 +53,7 @@ class CartViewBody extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(vertical: 16.sp),
+            padding: EdgeInsets.only(top: 16.sp, bottom: 8.sp),
             child: const SummaryHeaderCartView(),
           ),
           const Expanded(child: ProductsListCartView()),
