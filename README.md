@@ -8,6 +8,7 @@ Welcome to the E-Commerce App, a mobile application developed using Flutter for 
 - Add products to your shopping cart.
 - View and manage your shopping cart.
 - User authentication and account management.
+- Localization
 - and more...
 
 ## Screenshots
