@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../core/constants/assets/assets_images.dart';
 import '../../../../../core/localization/l10n.dart';
+import '../../../../../core/presentation/manager/preference_cubit/preference_cubit.dart';
 import '../../../../../core/presentation/views/widgets/elevated_bttn_custom.dart';
 
 class CouponCardCartView extends StatefulWidget {
@@ -27,11 +28,14 @@ class _CouponCardCartViewState extends State<CouponCardCartView> {
     return Stack(
       alignment: AlignmentDirectional.topStart,
       children: [
-        SvgPicture.asset(
-          AssetsImages.coupon,
-          // height: 0.2.sw,
-          width: 1.sw,
-          fit: BoxFit.fill,
+        Transform.flip(
+          flipX: getPreferenceCubit(context).langCode == 'en',
+          child: SvgPicture.asset(
+            AssetsImages.coupon,
+            // height: 0.2.sw,
+            width: 1.sw,
+            fit: BoxFit.fill,
+          ),
         ),
         Container(
           margin: EdgeInsetsDirectional.symmetric(vertical: 12.sp),
@@ -43,7 +47,7 @@ class _CouponCardCartViewState extends State<CouponCardCartView> {
                 locale.haveCoupon,
                 style: TextStyle(
                     color: theme.colorScheme.tertiary,
-                    fontSize: 16.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w700),
               ),
               SizedBox(height: 20.sp),
