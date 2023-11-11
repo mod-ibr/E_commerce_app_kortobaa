@@ -10,6 +10,7 @@ import '../../../../../core/presentation/views/widgets/inline_error_widget.dart'
 import '../../../../../core/presentation/views/widgets/loading_widget.dart';
 import '../../../../home_view/data/models/products/result.dart';
 import '../../manager/cart_cubit/cart_state.dart';
+import 'cart_view_coupon_card.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -51,12 +52,14 @@ class CartViewBody extends StatelessWidget {
       padding: EdgeInsetsDirectional.symmetric(horizontal: 16.sp),
       child: Flex(
         direction: Axis.vertical,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 16.sp),
             child: const SummaryHeaderCartView(),
           ),
           const Expanded(child: ProductsListCartView()),
+          
         ],
       ),
     );

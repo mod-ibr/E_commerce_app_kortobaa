@@ -10,6 +10,7 @@ class ElevatedBttnCustom extends StatelessWidget {
   final double? width;
   final bool isLoading;
   final IconData? iconData;
+  final double? fontSize;
 
   const ElevatedBttnCustom({
     super.key,
@@ -21,6 +22,7 @@ class ElevatedBttnCustom extends StatelessWidget {
     this.width,
     this.isLoading = false,
     this.iconData,
+    this.fontSize,
   });
 
   @override
@@ -38,9 +40,9 @@ class ElevatedBttnCustom extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
             elevation: elevation,
-            backgroundColor: theme.colorScheme.secondary,
+            backgroundColor: backgroundColor ?? theme.colorScheme.secondary,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(8.sp),
             ),
           ),
           child: Padding(
@@ -64,8 +66,11 @@ class ElevatedBttnCustom extends StatelessWidget {
                       Text(
                         title,
                         style: theme.textTheme.titleLarge?.copyWith(
+                            fontSize: fontSize,
                             fontWeight: FontWeight.w600,
-                            color: theme.colorScheme.tertiary),
+                            color: (backgroundColor != null)
+                                ? theme.colorScheme.onTertiary
+                                : theme.colorScheme.tertiary),
                       ),
                     ],
                   ),

@@ -5,4 +5,5 @@ abstract class AssetsImages {
   static String logo = "assets/images/logo.png";
   static String signUp = "assets/images/signup.png";
   static String login = "assets/images/login.png";
+  static const String coupon = "assets/icons/coupon.svg";
 }

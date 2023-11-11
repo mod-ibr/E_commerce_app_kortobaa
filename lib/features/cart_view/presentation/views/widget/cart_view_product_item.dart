@@ -13,7 +13,6 @@ class ProductItemCartView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final locale = getL10n(context);
     return Container(
       height: 0.22.sh,
       decoration: BoxDecoration(
