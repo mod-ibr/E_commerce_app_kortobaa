@@ -11,8 +11,7 @@ Welcome to the E-Commerce App, a mobile application developed using Flutter for 
 - and more...
 
 ## Screenshots
-
-Coming Soon...
+![Demo-1](https://github.com/mod-ibr/E_commerce_app_kortobaa/assets/81623956/fe58ebcc-2f86-4402-8002-d7f78f7ff05f)
 
 ## Installation
 
