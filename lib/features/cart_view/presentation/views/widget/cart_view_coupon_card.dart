@@ -1,11 +1,9 @@
-import 'package:e_commerce_app/core/presentation/views/widgets/elevated_bttn_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../../core/constants/assets/assets_icons.dart';
 import '../../../../../core/constants/assets/assets_images.dart';
 import '../../../../../core/localization/l10n.dart';
-import '../../../../../core/presentation/views/widgets/text_form_field_custom.dart';
+import '../../../../../core/presentation/views/widgets/elevated_bttn_custom.dart';
 
 class CouponCardCartView extends StatefulWidget {
   const CouponCardCartView({super.key});

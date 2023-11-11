@@ -1,16 +1,14 @@
-import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
-import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_products_list.dart';
-import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_summary_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../../core/localization/l10n.dart';
 import '../../../../../core/presentation/views/widgets/inline_error_widget.dart';
 import '../../../../../core/presentation/views/widgets/loading_widget.dart';
 import '../../../../home_view/data/models/products/result.dart';
+import '../../manager/cart_cubit/cart_cubit.dart';
 import '../../manager/cart_cubit/cart_state.dart';
-import 'cart_view_coupon_card.dart';
+import 'cart_view_products_list.dart';
+import 'cart_view_summary_header.dart';
 
 class CartViewBody extends StatelessWidget {
   const CartViewBody({super.key});
@@ -59,7 +57,6 @@ class CartViewBody extends StatelessWidget {
             child: const SummaryHeaderCartView(),
           ),
           const Expanded(child: ProductsListCartView()),
-          
         ],
       ),
     );
