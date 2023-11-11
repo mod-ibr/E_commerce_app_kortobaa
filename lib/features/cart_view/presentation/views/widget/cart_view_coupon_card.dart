@@ -64,7 +64,7 @@ class _CouponCardCartViewState extends State<CouponCardCartView> {
         Container(
             height: 35.sp,
             width: 0.4.sw,
-            padding: EdgeInsetsDirectional.only(end: 8.sp),
+            padding: EdgeInsetsDirectional.symmetric(horizontal: 8.sp),
             child: TextFormField(
               controller: couponController,
               style: theme.textTheme.labelLarge

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_invoice.dart';
 import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_product_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,14 +24,26 @@ class ProductsListCartView extends StatelessWidget {
                   product: cartCubitProvider.allProductsFromCart![index]),
             ),
             (index + 1 == cartCubitProvider.allProductsFromCart!.length)
-                ? Padding(
-                    padding: EdgeInsets.symmetric(vertical: 12.sp),
-                    child: const CouponCardCartView(),
-                  )
+                ? trailer()
                 : const SizedBox.shrink()
           ],
         );
       },
+    );
+  }
+
+  Widget trailer() {
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 12.sp),
+          child: const CouponCardCartView(),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 12.sp),
+          child: const InvoiceCartView(),
+        )
+      ],
     );
   }
 }
