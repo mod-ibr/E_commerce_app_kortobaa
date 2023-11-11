@@ -26,7 +26,7 @@ class _ProductsSliderHomeViewState extends State<ProductsSliderHomeView> {
     final productsCubitProvider = getProductsCubit(context);
     final imagesList = productsCubitProvider.productsImageSliderList;
     final theme = Theme.of(context);
-    final widgetHeight = widget.height * 0.55;
+    final widgetHeight = widget.height * 0.5;
     return SizedBox(
       height: widgetHeight,
       child: Column(
@@ -43,11 +43,16 @@ class _ProductsSliderHomeViewState extends State<ProductsSliderHomeView> {
               controller: controller,
               itemCount: imagesList.length,
               itemBuilder: (_, index) {
-                return SliderImagesHomeView(
-                    image: imagesList[index % imagesList.length]);
+                return Container(
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(12.sp)),
+                  child: SliderImagesHomeView(
+                      image: imagesList[index % imagesList.length]),
+                );
               },
             ),
           ),
+          SizedBox(height: 12.sp),
           SmoothPageIndicator(
             controller: controller,
             count: imagesList.length,

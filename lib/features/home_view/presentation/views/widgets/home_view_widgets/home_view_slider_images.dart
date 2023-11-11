@@ -10,7 +10,7 @@ class SliderImagesHomeView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 2),
       child: Image.asset(
         image,
-        fit: BoxFit.fitWidth,
+        fit: BoxFit.contain,
       ),
     );
   }
