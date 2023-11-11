@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 
 class AppBarHeaderHomeView extends StatelessWidget {
@@ -15,10 +13,9 @@ class AppBarHeaderHomeView extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional.centerStart,
           child: InkWell(
-              onTap: () {
-                log("Menu Button is Tapped");
-              },
-              child: const Icon(Icons.menu)),
+            onTap: Scaffold.of(context).openDrawer,
+            child: const Icon(Icons.menu),
+          ),
         ),
         Text(
           title,

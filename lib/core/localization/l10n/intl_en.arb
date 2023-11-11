@@ -27,7 +27,7 @@
   "warning": "Warning",
   "accountCreatedSuccessfully": "Congratulations, account created successfully, please log in again",
   "serverFailureMessage": "Please try again later,Error server...",
-  "localeStorageFailureMessage":"Please try again later,Error while processing data...",
+  "localeStorageFailureMessage": "Please try again later,Error while processing data...",
   "offlineFailureMessage": "You are offline, Please Check your Internet Connection",
   "wrongAccountFailureMessage": "No active account found with the given credentials",
   "existAccountFailureMessage": "A user with that username already exists.",
@@ -56,5 +56,7 @@
   "apply": "Apply",
   "enterCoupon": "Enter the coupon number",
   "taxes": "Taxes",
-  "completePurchase": "Complete your purchase"
+  "completePurchase": "Complete your purchase",
+  "en": "English",
+  "ar": "Arabic"
 }

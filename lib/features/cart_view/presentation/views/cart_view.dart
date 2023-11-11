@@ -1,8 +1,9 @@
-import 'package:e_commerce_app/core/localization/l10n.dart';
-import 'package:e_commerce_app/core/presentation/views/widgets/custom_app_bar.dart';
-import 'package:e_commerce_app/features/cart_view/presentation/manager/cart_cubit/cart_cubit.dart';
-import 'package:e_commerce_app/features/cart_view/presentation/views/widget/cart_view_body.dart';
 import 'package:flutter/material.dart';
+import '../../../../core/localization/l10n.dart';
+import '../../../../core/presentation/views/widgets/custom_app_bar.dart';
+import '../../../../core/presentation/views/widgets/drawer.dart';
+import '../manager/cart_cubit/cart_cubit.dart';
+import 'widget/cart_view_body.dart';
 
 class CartView extends StatefulWidget {
   const CartView({super.key});
@@ -20,6 +21,7 @@ class _CartViewState extends State<CartView> {
     cartCubitProvider.getAllProductsFromCart();
     return Scaffold(
       backgroundColor: theme.colorScheme.surface,
+      drawer: const DrawerCustom(),
       appBar: CustomAppBar(
         title: locale.shoppingBasket,
         actions: IconButton(
