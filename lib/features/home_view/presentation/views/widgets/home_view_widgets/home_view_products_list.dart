@@ -44,16 +44,19 @@ class ProductsListHomeView extends StatelessWidget {
       {required Products products, required BuildContext context}) {
     List<Result>? allProducts = products.results;
     final locale = getL10n(context);
+    final theme = Theme.of(context);
 
     if (allProducts == null || allProducts.isEmpty) {
       return Center(
         child: Text(locale.noInformationYet),
       );
     }
+
     return SizedBox(
       height: 0.24.sh,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
         itemCount: allProducts.length,
         itemBuilder: (context, index) => GestureDetector(
           onTap: () {
@@ -64,8 +67,26 @@ class ProductsListHomeView extends StatelessWidget {
               getShoppingCubit(context).showProductPage();
             }
           },
-          child: ProductCardHomeView(
-            product: allProducts[index],
+          child: Stack(
+            alignment: AlignmentDirectional.topStart,
+            children: [
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: ProductCardHomeView(
+                  product: allProducts[index],
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional.topStart,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.favorite_border,
+                    color: theme.colorScheme.onPrimary,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         separatorBuilder: (context, index) => SizedBox(width: 12.sp),

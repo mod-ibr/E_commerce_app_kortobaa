@@ -16,64 +16,72 @@ class ProductCardHomeView extends StatelessWidget {
     final theme = Theme.of(context);
     final locale = getL10n(context);
     return Container(
-      width: 0.35.sw,
+      width: 0.55.sw,
+      height: 0.35.sh,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12.sp),
           color: theme.colorScheme.tertiary),
-      child: Stack(
-        alignment: Alignment.center,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              imageWidget(product.imageLink, context),
-              SizedBox(height: 8.sp),
-              Text(
-                product.description ?? locale.noTitle,
-                maxLines: 2,
-                textAlign: TextAlign.start,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.bodySmall,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  product.price != null
-                      ? Row(
-                          children: [
-                            Text(
-                              "${product.price} ",
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.secondary,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            Text(
-                              locale.egp,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.secondary,
-                                  fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        )
-                      : const SizedBox.shrink(),
-                  IconButton(
-                    onPressed: () => log("Add ${product.name} to Cart"),
-                    icon: const Icon(Icons.add_shopping_cart_rounded),
-                  )
-                ],
-              )
-            ],
+          Expanded(
+            flex: 1,
+            child: imageWidget(product.imageLink, context),
           ),
-          Align(
-            alignment: AlignmentDirectional.topStart,
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.favorite_border,
-                color: theme.colorScheme.onPrimary,
-              ),
+          Expanded(
+            flex: 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 8.sp, left: 8.sp, right: 8.sp),
+                  child: Text(
+                    product.description ?? locale.noTitle,
+                    maxLines: 2,
+                    textAlign: TextAlign.start,
+                    overflow: TextOverflow.ellipsis,
+                    style:
+                        TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w800),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.sp),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      product.price != null
+                          ? Row(
+                              children: [
+                                Text(
+                                  "${product.price} ",
+                                  style: TextStyle(
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w800,
+                                      color: theme.colorScheme.secondary),
+                                ),
+                                Text(
+                                  locale.egp,
+                                  style: TextStyle(
+                                      fontSize: 20.sp,
+                                      fontWeight: FontWeight.w800,
+                                      color: theme.colorScheme.secondary),
+                                ),
+                              ],
+                            )
+                          : const SizedBox.shrink(),
+                      IconButton(
+                        onPressed: () => log("Add ${product.name} to Cart"),
+                        icon: Icon(
+                          Icons.add_shopping_cart_rounded,
+                          size: 30.sp,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
+          )
         ],
       ),
     );
@@ -82,30 +90,27 @@ class ProductCardHomeView extends StatelessWidget {
   Widget imageWidget(String? imageLink, context) {
     final theme = Theme.of(context);
 
-    return SizedBox(
-      height: 0.12.sh,
-      child: (imageLink != null && imageLink.isNotEmpty)
-          ? CachedNetworkImage(
-              imageUrl: imageLink,
-              fit: BoxFit.contain,
-              placeholder: (context, url) {
-                if (url.isEmpty) {
-                  return Container(
-                    color: theme.colorScheme.shadow,
-                  );
-                }
+    return (imageLink != null && imageLink.isNotEmpty)
+        ? CachedNetworkImage(
+            imageUrl: imageLink,
+            fit: BoxFit.cover,
+            placeholder: (context, url) {
+              if (url.isEmpty) {
                 return Container(
-                  alignment: Alignment.center,
-                  child: const CircularProgressIndicator(),
+                  color: theme.colorScheme.shadow,
                 );
-              },
-              errorWidget: (context, url, error) => Container(
-                color: theme.colorScheme.shadow,
-              ),
-            )
-          : Container(
+              }
+              return Container(
+                alignment: Alignment.center,
+                child: const CircularProgressIndicator(),
+              );
+            },
+            errorWidget: (context, url, error) => Container(
               color: theme.colorScheme.shadow,
             ),
-    );
+          )
+        : Container(
+            color: theme.colorScheme.shadow,
+          );
   }
 }
